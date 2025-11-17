@@ -72,6 +72,10 @@ class Settings {
             title: _("Remove down arrow in top bar")
         });
 
+        this.field_blink_icon_on_copy = new Adw.SwitchRow({
+            title: _("Blink icon on copy")
+        });
+
         this.field_cache_disable = new Adw.SwitchRow({
             title: _("Cache only pinned items")
         });
@@ -201,6 +205,7 @@ class Settings {
         this.topbar.add(this.field_display_mode);
         this.topbar.add(this.field_topbar_preview_size);
         this.topbar.add(this.field_disable_down_arrow);
+        this.topbar.add(this.field_blink_icon_on_copy);
 
         this.notifications.add(this.field_clear_notification_toggle);
         this.notifications.add(this.field_cycle_notification_toggle)
@@ -222,6 +227,7 @@ class Settings {
         this.schema.bind(PrefsFields.KEEP_SELECTED_ON_CLEAR, this.field_keep_selected_on_clear, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.TOPBAR_DISPLAY_MODE_ID, this.field_display_mode, 'selected', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.DISABLE_DOWN_ARROW, this.field_disable_down_arrow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        this.schema.bind(PrefsFields.BLINK_ICON_ON_COPY, this.field_blink_icon_on_copy, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.TOPBAR_PREVIEW_SIZE, this.field_topbar_preview_size, 'value', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.STRIP_TEXT, this.field_strip_text, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.PASTE_BUTTON, this.field_paste_button, 'active', Gio.SettingsBindFlags.DEFAULT);
