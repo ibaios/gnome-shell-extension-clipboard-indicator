@@ -36,6 +36,7 @@ let TOPBAR_DISPLAY_MODE       = 1; //0 - only icon, 1 - only clipboard content, 
 let CLEAR_ON_BOOT             = false;
 let PASTE_ON_SELECT           = false;
 let DISABLE_DOWN_ARROW        = false;
+let BLINK_ICON_ON_COPY        = false;
 let STRIP_TEXT                = false;
 let KEEP_SELECTED_ON_CLEAR    = false;
 let PASTE_BUTTON              = true;
@@ -164,6 +165,22 @@ const ClipboardIndicator = GObject.registerClass({
                 });
             }
         }
+    }
+
+    _blinkIcon () {
+        if (!BLINK_ICON_ON_COPY || !this.icon) {
+            return;
+        }
+
+        // Set inverted colors
+        this.set_style('background-color: rgba(255, 255, 255, 0.9);');
+        this.icon.set_style('color: rgba(0, 0, 0, 0.9);');
+
+        // Revert back to normal after delay
+        setTimeout(() => {
+            this.set_style(null);
+            this.icon.set_style(null);
+        }, 200);
     }
 
     async _buildMenu () {
@@ -801,6 +818,7 @@ const ClipboardIndicator = GObject.registerClass({
                         notif.addAction(_('Cancel'), this._cancelNotification);
                     });
                 }
+                this._blinkIcon();
             }
         }
         catch (e) {
@@ -1124,6 +1142,7 @@ const ClipboardIndicator = GObject.registerClass({
         CLEAR_ON_BOOT               = settings.get_boolean(PrefsFields.CLEAR_ON_BOOT);
         PASTE_ON_SELECT             = settings.get_boolean(PrefsFields.PASTE_ON_SELECT);
         DISABLE_DOWN_ARROW          = settings.get_boolean(PrefsFields.DISABLE_DOWN_ARROW);
+        BLINK_ICON_ON_COPY          = settings.get_boolean(PrefsFields.BLINK_ICON_ON_COPY);
         STRIP_TEXT                  = settings.get_boolean(PrefsFields.STRIP_TEXT);
         KEEP_SELECTED_ON_CLEAR      = settings.get_boolean(PrefsFields.KEEP_SELECTED_ON_CLEAR);
         PASTE_BUTTON                = settings.get_boolean(PrefsFields.PASTE_BUTTON);

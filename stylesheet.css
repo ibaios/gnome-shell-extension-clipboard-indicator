@@ -73,3 +73,11 @@
     height:1em;
     margin-right:.25em;
 }
+
+.clipboard-indicator-hbox {
+    transition: background-color 150ms ease-in-out;
+}
+
+.clipboard-indicator-hbox .clipboard-indicator-icon {
+    transition: color 150ms ease-in-out;
+}
