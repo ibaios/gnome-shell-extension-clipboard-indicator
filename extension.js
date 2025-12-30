@@ -73,6 +73,7 @@ const ClipboardIndicator = GObject.registerClass({
     #refreshInProgress = false;
 
     destroy () {
+        this._destroyed = true;
         this._disconnectSettings();
         this._unbindShortcuts();
         this._disconnectSelectionListener();
@@ -87,6 +88,7 @@ const ClipboardIndicator = GObject.registerClass({
     _init (extension) {
         super._init(0.0, "ClipboardIndicator");
         this.extension = extension;
+        this._destroyed = false;
         this.registry = new Registry(extension);
         this.keyboard = new Keyboard();
         this._settingsChangedId = null;
@@ -131,6 +133,9 @@ const ClipboardIndicator = GObject.registerClass({
 
         this.dialogManager = new DialogManager();
         this._buildMenu().then(() => {
+            if (this._destroyed) {
+                return;
+            }
             this._updateTopbarLayout();
             this._setupListener();
             this._setupHistoryIntervalClearing();
@@ -169,6 +174,9 @@ const ClipboardIndicator = GObject.registerClass({
     async _buildMenu () {
         let that = this;
         const clipHistory = await this._getCache();
+        if (this._destroyed) {
+            return;
+        }
         let lastIdx = clipHistory.length - 1;
         let clipItemsArr = that.clipItemsRadioGroup;
 
@@ -350,6 +358,9 @@ const ClipboardIndicator = GObject.registerClass({
     }
 
     #hideElements() {
+        if (this._destroyed) {
+            return;
+        }
         if (this.menu.box.contains(this._entryItem)) this.menu.box.remove_child(this._entryItem);
         if (this.menu.box.contains(this.favoritesSeparator)) this.menu.box.remove_child(this.favoritesSeparator);
         if (this.menu.box.contains(this.historySeparator)) this.menu.box.remove_child(this.historySeparator);
@@ -358,6 +369,9 @@ const ClipboardIndicator = GObject.registerClass({
     }
 
     #showElements() {
+        if (this._destroyed) {
+            return;
+        }
         if (this.clipItemsRadioGroup.length > 0) {
             if (this.menu.box.contains(this._entryItem) === false) {
                 this.menu.box.insert_child_at_index(this._entryItem, 0);
@@ -393,6 +407,9 @@ const ClipboardIndicator = GObject.registerClass({
     }
 
     #renderEmptyState () {
+        if (this._destroyed) {
+            return;
+        }
         this.#hideElements();
         this.menu.box.insert_child_at_index(this.emptyStateSection, 0);
     }
@@ -767,7 +784,7 @@ const ClipboardIndicator = GObject.registerClass({
     }
 
     async _refreshIndicator () {
-        if (PRIVATEMODE) return; // Private mode, do not.
+        if (PRIVATEMODE || this._destroyed) return; // Private mode, do not.
 
         const focussedWindow = Shell.Global.get().display.focusWindow;
         const wmClass = focussedWindow?.get_wm_class();
@@ -779,6 +796,9 @@ const ClipboardIndicator = GObject.registerClass({
 
         try {
             const result = await this.#getClipboardContent();
+            if (this._destroyed) {
+                return;
+            }
 
             if (result) {
                 for (let menuItem of this.clipItemsRadioGroup) {
