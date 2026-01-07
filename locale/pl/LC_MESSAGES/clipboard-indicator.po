@@ -22,221 +22,256 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 3.7\n"
 
-#: extension.js:108
+#: extension.js:113
 msgid "Text will be here"
 msgstr "Treść będzie tutaj"
 
-#: extension.js:181
+#: extension.js:187
 msgid "Type here to search..."
 msgstr "Wpisz tutaj, aby wyszukać..."
 
-#: extension.js:250 prefs.js:220
+#: extension.js:256 prefs.js:257
 msgid "Private mode"
 msgstr "Tryb prywatny"
 
-#: extension.js:264 prefs.js:222
+#: extension.js:270 prefs.js:259
 msgid "Clear history"
 msgstr "Wyczyść historię"
 
-#: extension.js:276
+#: extension.js:315
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: extension.js:299
+#: extension.js:338
 msgid "Clipboard is empty"
 msgstr "Schowek jest pusty"
 
-#: extension.js:571
+#: extension.js:626
 msgid "Clear all?"
 msgstr "Wyczyścić wszystko?"
 
-#: extension.js:572
+#: extension.js:627
 msgid "Are you sure you want to delete all clipboard items?"
 msgstr "Czy jesteś pewien, że chcesz usunąć wszystkie elementy ze schowka?"
 
-#: extension.js:573
+#: extension.js:628
 msgid "This operation cannot be undone."
 msgstr "Tej operacji nie będzie można cofnąć."
 
-#: extension.js:575
+#: extension.js:630
 msgid "Clear"
 msgstr "Wyczyść"
 
-#: extension.js:575 extension.js:740
+#: extension.js:630 extension.js:801
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: extension.js:588
+#: extension.js:645
 msgid "Clipboard history cleared"
 msgstr "Wyczyszczono historię schowka"
 
-#: extension.js:739
+#: extension.js:648
+#, fuzzy
+msgid "Clipboard history cleared automatically"
+msgstr "Wyczyszczono historię schowka"
+
+#: extension.js:800
 msgid "Copied to clipboard"
 msgstr "Skopiowano do schowka"
 
-#: prefs.js:30
+#: prefs.js:31
 msgid "History Size"
 msgstr "Rozmiar historii"
 
-#: prefs.js:39
+#: prefs.js:40
 msgid "Preview Size (characters)"
 msgstr "Rozmiar podglądu (znaki)"
 
-#: prefs.js:48
+#: prefs.js:49
 msgid "Max cache file size (MB)"
 msgstr "Maksymalny rozmiar buforu (MB)"
 
-#: prefs.js:57
+#: prefs.js:58
 msgid "Number of characters in top bar"
 msgstr "Liczba znaków na panelu"
 
-#: prefs.js:66
+#: prefs.js:67
 msgid "What to show in top bar"
 msgstr "Pokazywanie na panelu"
 
-#: prefs.js:71
+#: prefs.js:72
 msgid "Remove down arrow in top bar"
 msgstr "Usuń strzałkę w dół na panelu"
 
-#: prefs.js:75
+#: prefs.js:76
 msgid "Cache only pinned items"
 msgstr "Pamięć podręczna tylko dla przypiętych elementów"
 
-#: prefs.js:79
+#: prefs.js:80
 msgid "Show notification on copy"
 msgstr "Pokaż powiadomienie po skopiowaniu"
 
-#: prefs.js:83
+#: prefs.js:84
 msgid "Show notification on cycle"
 msgstr "Pokaż powiadomienie po przełączeniu"
 
-#: prefs.js:87
+#: prefs.js:88
 msgid "Show confirmation on Clear History"
 msgstr "Pokaż powiadomienie po wyczyszczeniu historii"
 
-#: prefs.js:91
+#: prefs.js:92
 msgid "Remove whitespace around text"
 msgstr "Usuń białe znaki przed/po tekście"
 
-#: prefs.js:95
+#: prefs.js:96
 msgid "Move item to the top after selection"
 msgstr "Przenieś na początek po wybraniu"
 
-#: prefs.js:99
+#: prefs.js:100
 msgid "Keep selected entry after Clear History"
 msgstr "Zachowaj wybraną pozycję po wyczyszczeniu historii"
 
-#: prefs.js:103
+#: prefs.js:104
 msgid "Show paste buttons"
 msgstr "Pokaż przyciski wklejania"
 
-#: prefs.js:104
+#: prefs.js:105
 msgid "Adds a paste button to each entry that lets you paste it directly"
 msgstr ""
 "Dodaje przycisk wklejania przy każdym wpisie, który pozwala wkleić go "
 "bezpośrednio"
 
-#: prefs.js:108
+#: prefs.js:109
 msgid "Place the pinned section on the bottom"
 msgstr "Umieść sekcje z przypiętymi pozycjami na dole"
 
-#: prefs.js:109
+#: prefs.js:110
 msgid "Requires restarting the extension"
 msgstr "Wymaga ponownego uruchomienia rozszerzenia"
 
-#: prefs.js:113
+#: prefs.js:114
 msgid "Clear clipboard history on system reboot"
 msgstr "Wyczyść historię przy uruchamianiu systemu"
 
-#: prefs.js:117
+#: prefs.js:118
 msgid "Paste on select"
 msgstr "Wklej po wybraniu"
 
-#: prefs.js:121
+#: prefs.js:122
 msgid "Cache images"
 msgstr "Bufor obrazów"
 
-#: prefs.js:126
+#: prefs.js:127
 msgid "Excluded Apps"
 msgstr "Wykluczone aplikacje"
 
-#: prefs.js:127
+#: prefs.js:128
 msgid "Content copied will not be saved while these apps are in focus"
 msgstr ""
 "Kopiowana treść nie zostanie zapisana, gdy te aplikacje są na pierwszym "
 "planie"
 
-#: prefs.js:146
+#: prefs.js:139
+msgid "Case-sensitive search"
+msgstr ""
+
+#: prefs.js:143
+msgid "Regular expression matching in search"
+msgstr ""
+
+#: prefs.js:156
+#, fuzzy
+msgid "Clear clipboard history on interval"
+msgstr "Wyczyść historię przy uruchamianiu systemu"
+
+#: prefs.js:160
+msgid "History clear interval (in minutes)"
+msgstr ""
+
+#: prefs.js:172
 msgid "UI"
 msgstr "Interfejs użytkownika"
 
-#: prefs.js:147
+#: prefs.js:173
 msgid "Behavior"
 msgstr "Zachowanie"
 
-#: prefs.js:148
+#: prefs.js:174
 msgid "Exclusion"
 msgstr "Wykluczanie"
 
-#: prefs.js:149
+#: prefs.js:175
 msgid "Limits"
 msgstr "Limity"
 
-#: prefs.js:150
+#: prefs.js:176
 msgid "Topbar"
 msgstr "Panel systemowy"
 
-#: prefs.js:151
+#: prefs.js:177
 msgid "Notifications"
 msgstr "Powiadomienia"
 
-#: prefs.js:152
+#: prefs.js:178
 msgid "Shortcuts"
 msgstr "Skróty klawiszowe"
 
-#: prefs.js:207
+#: prefs.js:179
+msgid "Search"
+msgstr ""
+
+#: prefs.js:244
 msgid "Icon"
 msgstr "Ikona"
 
-#: prefs.js:208
+#: prefs.js:245
 msgid "Clipboard Content"
 msgstr "Zawartość schowka"
 
-#: prefs.js:209
+#: prefs.js:246
 msgid "Both"
 msgstr "Oba"
 
-#: prefs.js:210
+#: prefs.js:247
 msgid "Neither"
 msgstr "Żaden"
 
-#: prefs.js:221
+#: prefs.js:258
 msgid "Toggle the menu"
 msgstr "Pokaż zawartość schowka"
 
-#: prefs.js:223
+#: prefs.js:260
 msgid "Previous entry"
 msgstr "Poprzednia pozycja"
 
-#: prefs.js:224
+#: prefs.js:261
 msgid "Next entry"
 msgstr "Następna pozycja"
 
-#: prefs.js:229
+#: prefs.js:266
 msgid "Enable shortcuts"
 msgstr "Włącz skróty klawiszowe"
 
-#: prefs.js:254
+#: prefs.js:291
 msgid "Disabled"
 msgstr "Wyłączony"
 
-#: prefs.js:263
+#: prefs.js:300
 msgid "Enter shortcut"
 msgstr "Wprowadź skrót klawiszowy"
 
-#: prefs.js:345
+#: prefs.js:387
 msgid "Window class name, e.g. \"KeePassXC\""
 msgstr "Nazwa klasy okna, np. \"KeePassXC\""
+
+#: prefs.js:399
+#, fuzzy
+msgid "Choose from installed applications"
+msgstr "Lista wykluczonych aplikacji"
+
+#: prefs.js:416
+msgid "Search applications..."
+msgstr ""
 
 #~ msgid "Add button to paste an entry"
 #~ msgstr "Dodaj przycisk, aby wkleić wpis"
@@ -398,9 +433,6 @@ msgstr "Nazwa klasy okna, np. \"KeePassXC\""
 
 #~ msgid "Allow caching images to disk"
 #~ msgstr "Zezwalaj na buforowanie obrazów na dysku"
-
-#~ msgid "List of excluded applications"
-#~ msgstr "Lista wykluczonych aplikacji"
 
 #~ msgid "A list of applications that are excluded from clipboard history."
 #~ msgstr "Lista aplikacji, które są wykluczone z historii schowka."

@@ -21,220 +21,254 @@ msgstr ""
 "X-Poedit-SearchPath-0: prefs.js\n"
 "X-Poedit-SearchPath-1: extension.js\n"
 
-#: extension.js:108
+#: extension.js:113
 msgid "Text will be here"
 msgstr "Tu bude text"
 
-#: extension.js:181
+#: extension.js:187
 msgid "Type here to search..."
 msgstr "Kliknite sem pre vyhľadávanie..."
 
-#: extension.js:250 prefs.js:220
+#: extension.js:256 prefs.js:257
 msgid "Private mode"
 msgstr "Súkromný režim"
 
-#: extension.js:264 prefs.js:222
+#: extension.js:270 prefs.js:259
 msgid "Clear history"
 msgstr "Vymazanie histórie"
 
-#: extension.js:276
+#: extension.js:315
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: extension.js:299
+#: extension.js:338
 msgid "Clipboard is empty"
 msgstr "Schránka je prázdna"
 
-#: extension.js:571
+#: extension.js:626
 msgid "Clear all?"
 msgstr "Vyčistiť všetko?"
 
-#: extension.js:572
+#: extension.js:627
 msgid "Are you sure you want to delete all clipboard items?"
 msgstr "Naozaj chcete odstrániť všetky položky schránky?"
 
-#: extension.js:573
+#: extension.js:628
 msgid "This operation cannot be undone."
 msgstr "Táto akcia sa nedá odvolať."
 
-#: extension.js:575
+#: extension.js:630
 msgid "Clear"
 msgstr "Vyčistiť"
 
-#: extension.js:575 extension.js:740
+#: extension.js:630 extension.js:801
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: extension.js:588
+#: extension.js:645
 msgid "Clipboard history cleared"
 msgstr "História schránky vymazaná"
 
-#: extension.js:739
+#: extension.js:648
+#, fuzzy
+msgid "Clipboard history cleared automatically"
+msgstr "História schránky vymazaná"
+
+#: extension.js:800
 msgid "Copied to clipboard"
 msgstr "Skopírované do schránky"
 
-#: prefs.js:30
+#: prefs.js:31
 msgid "History Size"
 msgstr "Veľkosť histórie"
 
-#: prefs.js:39
+#: prefs.js:40
 msgid "Preview Size (characters)"
 msgstr "Veľkosť náhľadu (v znakoch)"
 
-#: prefs.js:48
+#: prefs.js:49
 msgid "Max cache file size (MB)"
 msgstr "Max. veľkosť súboru vyrovnávacej pamäte (MB)"
 
-#: prefs.js:57
+#: prefs.js:58
 msgid "Number of characters in top bar"
 msgstr "Počet znakov v hornom riadku"
 
-#: prefs.js:66
+#: prefs.js:67
 msgid "What to show in top bar"
 msgstr "Čo zobraziť v hornom riadku"
 
-#: prefs.js:71
+#: prefs.js:72
 msgid "Remove down arrow in top bar"
 msgstr "Odstrániť šípku dole v hornom riadku"
 
-#: prefs.js:75
+#: prefs.js:76
 msgid "Cache only pinned items"
 msgstr "Kešovať iba obľúbené položky"
 
-#: prefs.js:79
+#: prefs.js:80
 msgid "Show notification on copy"
 msgstr "Zobraziť upozornenie pri kopírovaní"
 
-#: prefs.js:83
+#: prefs.js:84
 #, fuzzy
 msgid "Show notification on cycle"
 msgstr "Zobraziť upozornenie pri kopírovaní"
 
-#: prefs.js:87
+#: prefs.js:88
 msgid "Show confirmation on Clear History"
 msgstr "Zobraziť upozornenie pri čistení histórie"
 
-#: prefs.js:91
+#: prefs.js:92
 msgid "Remove whitespace around text"
 msgstr "Odstraňovať medzery pred a za textom"
 
-#: prefs.js:95
+#: prefs.js:96
 msgid "Move item to the top after selection"
 msgstr "Po výbere presunúť položku na začiatok zoznamu"
 
-#: prefs.js:99
+#: prefs.js:100
 msgid "Keep selected entry after Clear History"
 msgstr "Ponechať vybranú položku po vyčistení histórie"
 
-#: prefs.js:103
+#: prefs.js:104
 msgid "Show paste buttons"
 msgstr "Zobraziť tlačidlá na vloženie"
 
-#: prefs.js:104
+#: prefs.js:105
 msgid "Adds a paste button to each entry that lets you paste it directly"
 msgstr ""
 "Pridá tlačidlo na vloženie vedľa každej položky, čo vám umožní vkladať obsah "
 "priamo"
 
-#: prefs.js:108
+#: prefs.js:109
 msgid "Place the pinned section on the bottom"
 msgstr "Umiestňovat sekciu obľúbených na spodok"
 
-#: prefs.js:109
+#: prefs.js:110
 msgid "Requires restarting the extension"
 msgstr "Vyžaduje reštart rozšírenia"
 
-#: prefs.js:113
+#: prefs.js:114
 #, fuzzy
 msgid "Clear clipboard history on system reboot"
 msgstr "História schránky vymazaná"
 
-#: prefs.js:117
+#: prefs.js:118
 msgid "Paste on select"
 msgstr ""
 
-#: prefs.js:121
+#: prefs.js:122
 msgid "Cache images"
 msgstr ""
 
-#: prefs.js:126
+#: prefs.js:127
 msgid "Excluded Apps"
 msgstr ""
 
-#: prefs.js:127
+#: prefs.js:128
 msgid "Content copied will not be saved while these apps are in focus"
 msgstr ""
 
-#: prefs.js:146
+#: prefs.js:139
+msgid "Case-sensitive search"
+msgstr ""
+
+#: prefs.js:143
+msgid "Regular expression matching in search"
+msgstr ""
+
+#: prefs.js:156
+#, fuzzy
+msgid "Clear clipboard history on interval"
+msgstr "História schránky vymazaná"
+
+#: prefs.js:160
+msgid "History clear interval (in minutes)"
+msgstr ""
+
+#: prefs.js:172
 msgid "UI"
 msgstr "Rozhranie"
 
-#: prefs.js:147
+#: prefs.js:173
 msgid "Behavior"
 msgstr ""
 
-#: prefs.js:148
+#: prefs.js:174
 msgid "Exclusion"
 msgstr ""
 
-#: prefs.js:149
+#: prefs.js:175
 msgid "Limits"
 msgstr "Limity"
 
-#: prefs.js:150
+#: prefs.js:176
 msgid "Topbar"
 msgstr "Vrchný riadok"
 
-#: prefs.js:151
+#: prefs.js:177
 msgid "Notifications"
 msgstr "Upozornenia"
 
-#: prefs.js:152
+#: prefs.js:178
 msgid "Shortcuts"
 msgstr "Skratky"
 
-#: prefs.js:207
+#: prefs.js:179
+msgid "Search"
+msgstr ""
+
+#: prefs.js:244
 msgid "Icon"
 msgstr "Ikona"
 
-#: prefs.js:208
+#: prefs.js:245
 msgid "Clipboard Content"
 msgstr "Obsah schránky"
 
-#: prefs.js:209
+#: prefs.js:246
 msgid "Both"
 msgstr "Obidve"
 
-#: prefs.js:210
+#: prefs.js:247
 msgid "Neither"
 msgstr ""
 
-#: prefs.js:221
+#: prefs.js:258
 msgid "Toggle the menu"
 msgstr "Prepnutie ponuky"
 
-#: prefs.js:223
+#: prefs.js:260
 msgid "Previous entry"
 msgstr "Predchádzajúca položka"
 
-#: prefs.js:224
+#: prefs.js:261
 msgid "Next entry"
 msgstr "Nasledujúca položka"
 
-#: prefs.js:229
+#: prefs.js:266
 msgid "Enable shortcuts"
 msgstr "Povoliť klávesové skratky"
 
-#: prefs.js:254
+#: prefs.js:291
 msgid "Disabled"
 msgstr "Vypnuté"
 
-#: prefs.js:263
+#: prefs.js:300
 msgid "Enter shortcut"
 msgstr "Zadajte klávesovú skratku"
 
-#: prefs.js:345
+#: prefs.js:387
 msgid "Window class name, e.g. \"KeePassXC\""
+msgstr ""
+
+#: prefs.js:399
+msgid "Choose from installed applications"
+msgstr ""
+
+#: prefs.js:416
+msgid "Search applications..."
 msgstr ""
 
 #~ msgid "Refresh Interval (ms)"
