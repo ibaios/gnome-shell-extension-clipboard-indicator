@@ -1,19 +1,21 @@
 # Basque translation for gnome-shell-extension-clipboard-indicator.
 # This file is distributed under the same license as the Dash to Dock package.
-# Ibai Oihanguren Sala <ibai@oihanguren.com>, 2020.
+# Ibai Oihanguren Sala <ibaios@disroot.org>, 2020-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extension-clipboard-indicator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-21 16:41+0300\n"
-"PO-Revision-Date: 2020-10-05 23:34+0200\n"
-"Last-Translator: Ibai Oihanguren Sala <ibai@oihanguren.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2026-01-11 23:26+0100\n"
+"Last-Translator: Ibai Oihanguren Sala <ibaios@disroot.org>\n"
+"Language-Team: Basque\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 49.0\n"
 
 #: extension.js:108
 msgid "Text will be here"
@@ -36,9 +38,8 @@ msgid "Settings"
 msgstr "Ezarpenak"
 
 #: extension.js:299
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "Arbelaren edukia"
+msgstr "Arbela hutsik dago"
 
 #: extension.js:571
 msgid "Clear all?"
@@ -77,9 +78,8 @@ msgid "Preview Size (characters)"
 msgstr "Aurrebistaren tamaina (karaktereak)"
 
 #: prefs.js:48
-#, fuzzy
 msgid "Max cache file size (MB)"
-msgstr "Cache fitxategiaren gehienezko tamaina (kb)"
+msgstr "Cache fitxategiaren gehienezko tamaina (MB)"
 
 #: prefs.js:57
 msgid "Number of characters in top bar"
@@ -94,23 +94,20 @@ msgid "Remove down arrow in top bar"
 msgstr "Kendu beheranzko gezia goiko barran"
 
 #: prefs.js:75
-#, fuzzy
 msgid "Cache only pinned items"
-msgstr "Cacheratu gogokoak soilik"
+msgstr "Cacheratu ainguratutako elementuak soilik"
 
 #: prefs.js:79
 msgid "Show notification on copy"
 msgstr "Erakutsi jakinarazpena kopiatzean"
 
 #: prefs.js:83
-#, fuzzy
 msgid "Show notification on cycle"
-msgstr "Erakutsi jakinarazpena kopiatzean"
+msgstr "Erakutsi jakinarazpena nabigatzean"
 
 #: prefs.js:87
-#, fuzzy
 msgid "Show confirmation on Clear History"
-msgstr "Erakutsi jakinarazpena kopiatzean"
+msgstr "Eskatu berrespena historia garbitzerakoan"
 
 #: prefs.js:91
 msgid "Remove whitespace around text"
@@ -122,72 +119,73 @@ msgstr "Eraman elementua goraino hautatu ostean"
 
 #: prefs.js:99
 msgid "Keep selected entry after Clear History"
-msgstr ""
+msgstr "Gorde hautatutako elementua historia garbitu ondoren"
 
 #: prefs.js:103
 msgid "Show paste buttons"
-msgstr ""
+msgstr "Erakutsi itsasteko botoiak"
 
 #: prefs.js:104
 msgid "Adds a paste button to each entry that lets you paste it directly"
 msgstr ""
+"Sarrera bakoitzaren alboan itsasteko botoi bat gehitzen du, zuzenean "
+"itsasteko"
 
 #: prefs.js:108
 msgid "Place the pinned section on the bottom"
-msgstr ""
+msgstr "Kokatu ainguratutakoen atala behealdean"
 
 #: prefs.js:109
 msgid "Requires restarting the extension"
-msgstr ""
+msgstr "Hedapena berrabiarazi behar da"
 
 #: prefs.js:113
-#, fuzzy
 msgid "Clear clipboard history on system reboot"
-msgstr "Arbelaren historia garbituta"
+msgstr "Garbitu arbelaren historia sistema berrabiaraztean"
 
 #: prefs.js:117
 msgid "Paste on select"
-msgstr ""
+msgstr "Itsatsi hautatzean"
 
 #: prefs.js:121
 msgid "Cache images"
-msgstr ""
+msgstr "Cacheratu irudiak"
 
 #: prefs.js:126
 msgid "Excluded Apps"
-msgstr ""
+msgstr "Salbuetsitako aplikazioak"
 
 #: prefs.js:127
 msgid "Content copied will not be saved while these apps are in focus"
-msgstr ""
+msgstr "Aplikazio hauek fokua dutenean kopiatutako edukia ez da gordeko"
 
 #: prefs.js:146
 msgid "UI"
-msgstr ""
+msgstr "Erabiltzaile interfazea"
 
 #: prefs.js:147
 msgid "Behavior"
-msgstr ""
+msgstr "Portaera"
 
 #: prefs.js:148
 msgid "Exclusion"
-msgstr ""
+msgstr "Salbuespena"
 
 #: prefs.js:149
 msgid "Limits"
-msgstr ""
+msgstr "Mugak"
 
 #: prefs.js:150
 msgid "Topbar"
-msgstr ""
+msgstr "Goiko barra"
 
 #: prefs.js:151
 msgid "Notifications"
-msgstr ""
+msgstr "Jakinarazpenak"
 
 #: prefs.js:152
 msgid "Shortcuts"
-msgstr ""
+msgstr "Laster-teklak"
 
 #: prefs.js:207
 msgid "Icon"
@@ -203,7 +201,7 @@ msgstr "Biak"
 
 #: prefs.js:210
 msgid "Neither"
-msgstr ""
+msgstr "Bat ere ez"
 
 #: prefs.js:221
 msgid "Toggle the menu"
@@ -218,22 +216,20 @@ msgid "Next entry"
 msgstr "Hurrengo sarrera"
 
 #: prefs.js:229
-#, fuzzy
 msgid "Enable shortcuts"
-msgstr "Laster-teklak"
+msgstr "Gaitu laster-teklak"
 
 #: prefs.js:254
 msgid "Disabled"
-msgstr ""
+msgstr "Ezgaituta"
 
 #: prefs.js:263
-#, fuzzy
 msgid "Enter shortcut"
-msgstr "Laster-teklak"
+msgstr "Sartu laster-tekla"
 
 #: prefs.js:345
 msgid "Window class name, e.g. \"KeePassXC\""
-msgstr ""
+msgstr "Leihoaren klase-izena, adb. \"KeePassXC\""
 
 #~ msgid "Refresh Interval (ms)"
 #~ msgstr "Berritze-maiztasuna (ms)"
