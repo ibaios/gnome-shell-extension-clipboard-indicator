@@ -203,7 +203,7 @@ class Settings {
         this.topbar.add(this.field_disable_down_arrow);
 
         this.notifications.add(this.field_clear_notification_toggle);
-        this.notifications.add(this.field_cycle_notification_toggle)
+        this.notifications.add(this.field_cycle_notification_toggle);
         this.notifications.add(this.field_confirm_clear_toggle);
 
         this.search.add(this.case_sensitive_search);
