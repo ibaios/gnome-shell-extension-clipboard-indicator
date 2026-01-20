@@ -85,7 +85,7 @@ class Settings {
         });
 
         this.field_confirm_clear_toggle = new Adw.SwitchRow({
-            title: _("Show confirmation on Clear History")
+            title: _("Prompt for confirmation on Clear History")
         });
 
         this.field_strip_text = new Adw.SwitchRow({
@@ -184,6 +184,7 @@ class Settings {
         this.ui.add(this.field_keep_selected_on_clear);
         this.ui.add(this.field_paste_button);
         this.ui.add(this.field_pinned_on_bottom);
+        this.ui.add(this.field_confirm_clear_toggle);
 
         this.behavior.add(this.field_paste_on_select);
         this.behavior.add(this.field_cache_images);
@@ -204,7 +205,6 @@ class Settings {
 
         this.notifications.add(this.field_copy_notification_toggle);
         this.notifications.add(this.field_cycle_notification_toggle);
-        this.notifications.add(this.field_confirm_clear_toggle);
 
         this.search.add(this.case_sensitive_search);
         this.search.add(this.regex_search);

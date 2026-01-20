@@ -110,7 +110,7 @@ msgid "Show notification on cycle"
 msgstr ""
 
 #: prefs.js:88
-msgid "Show confirmation on Clear History"
+msgid "Prompt for confirmation on Clear History"
 msgstr ""
 
 #: prefs.js:92

@@ -120,7 +120,7 @@ msgstr "コピー時に通知を表示する"
 
 #: prefs.js:88
 #, fuzzy
-msgid "Show confirmation on Clear History"
+msgid "Prompt for confirmation on Clear History"
 msgstr "コピー時に通知を表示する"
 
 #: prefs.js:92

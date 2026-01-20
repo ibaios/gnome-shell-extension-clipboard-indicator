@@ -113,7 +113,7 @@ msgid "Show notification on cycle"
 msgstr "Mostrar una notificación al copiar"
 
 #: prefs.js:88
-msgid "Show confirmation on Clear History"
+msgid "Prompt for confirmation on Clear History"
 msgstr "Mostrar una confirmación al borrar el historial"
 
 #: prefs.js:92

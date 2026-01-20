@@ -107,7 +107,7 @@ msgid "Show notification on cycle"
 msgstr "Afficher une notification lors du défilement de l’historique"
 
 #: prefs.js:88
-msgid "Show confirmation on Clear History"
+msgid "Prompt for confirmation on Clear History"
 msgstr "Confirmer l'effacement de l'historique"
 
 #: prefs.js:92

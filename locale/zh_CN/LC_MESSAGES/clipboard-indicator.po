@@ -117,7 +117,7 @@ msgid "Show notification on cycle"
 msgstr "复制时显示通知"
 
 #: prefs.js:88
-msgid "Show confirmation on Clear History"
+msgid "Prompt for confirmation on Clear History"
 msgstr "清除历史时显示通知"
 
 #: prefs.js:92

@@ -114,7 +114,7 @@ msgid "Show notification on cycle"
 msgstr "Bildirimleri döngüyle göster"
 
 #: prefs.js:88
-msgid "Show confirmation on Clear History"
+msgid "Prompt for confirmation on Clear History"
 msgstr "Geçmişi temizlerken onay iste"
 
 #: prefs.js:92

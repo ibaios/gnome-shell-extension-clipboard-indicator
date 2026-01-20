@@ -122,7 +122,7 @@ msgstr "Mostrar notificação sobre cópia"
 
 #: prefs.js:88
 #, fuzzy
-msgid "Show confirmation on Clear History"
+msgid "Prompt for confirmation on Clear History"
 msgstr "Mostrar notificação sobre cópia"
 
 #: prefs.js:92

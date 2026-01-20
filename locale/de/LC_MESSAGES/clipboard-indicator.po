@@ -113,8 +113,8 @@ msgid "Show notification on cycle"
 msgstr "Benachrichtigung beim Kopieren anzeigen"
 
 #: prefs.js:88
-msgid "Show confirmation on Clear History"
-msgstr "Bestätigung beim Löschen des Verlaufs anzeigen"
+msgid "Prompt for confirmation on Clear History"
+msgstr "Zur Bestätigung beim Löschen des Verlaufs auffordern"
 
 #: prefs.js:92
 msgid "Remove whitespace around text"

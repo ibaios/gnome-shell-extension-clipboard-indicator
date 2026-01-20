@@ -117,7 +117,7 @@ msgstr "Melding tonen na kopiëren"
 
 #: prefs.js:88
 #, fuzzy
-msgid "Show confirmation on Clear History"
+msgid "Prompt for confirmation on Clear History"
 msgstr "Melding tonen na kopiëren"
 
 #: prefs.js:92

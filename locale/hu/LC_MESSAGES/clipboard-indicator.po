@@ -117,7 +117,7 @@ msgstr "Értesítés vágólapra másoláskor"
 
 #: prefs.js:88
 #, fuzzy
-msgid "Show confirmation on Clear History"
+msgid "Prompt for confirmation on Clear History"
 msgstr "Értesítés vágólapra másoláskor"
 
 #: prefs.js:92
