@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 17:46+0100\n"
+"POT-Creation-Date: 2026-01-20 18:06+0100\n"
 "PO-Revision-Date: 2025-09-09 20:02+0200\n"
 "Last-Translator: Adam Lewicki <a.lewick95@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -62,20 +62,20 @@ msgstr "Tej operacji nie będzie można cofnąć."
 msgid "Clear"
 msgstr "Wyczyść"
 
-#: extension.js:630 extension.js:801
+#: extension.js:630 extension.js:799
 msgid "Cancel"
 msgstr "Anuluj"
 
 #: extension.js:645
-msgid "Clipboard history cleared"
-msgstr "Wyczyszczono historię schowka"
-
-#: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "Wyczyszczono historię schowka"
 
-#: extension.js:800
+#: extension.js:646
+msgid "Clipboard history cleared"
+msgstr "Wyczyszczono historię schowka"
+
+#: extension.js:798
 msgid "Copied to clipboard"
 msgstr "Skopiowano do schowka"
 

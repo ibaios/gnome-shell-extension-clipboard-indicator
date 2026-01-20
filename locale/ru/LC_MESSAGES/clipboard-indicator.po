@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 17:46+0100\n"
+"POT-Creation-Date: 2026-01-20 18:06+0100\n"
 "PO-Revision-Date: 2025-05-15 18:37+0300\n"
 "Last-Translator: Mariya Shikunova <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -59,20 +59,20 @@ msgstr "Эту операцию нельзя отменить."
 msgid "Clear"
 msgstr "Очистить"
 
-#: extension.js:630 extension.js:801
+#: extension.js:630 extension.js:799
 msgid "Cancel"
 msgstr "Отменить"
 
 #: extension.js:645
-msgid "Clipboard history cleared"
-msgstr "История буфера обмена очищена"
-
-#: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "История буфера обмена очищена"
 
-#: extension.js:800
+#: extension.js:646
+msgid "Clipboard history cleared"
+msgstr "История буфера обмена очищена"
+
+#: extension.js:798
 msgid "Copied to clipboard"
 msgstr "Скопировано в буфер обмена"
 

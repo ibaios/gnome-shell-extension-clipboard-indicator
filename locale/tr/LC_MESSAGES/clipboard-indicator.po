@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 17:46+0100\n"
+"POT-Creation-Date: 2026-01-20 18:06+0100\n"
 "PO-Revision-Date: 2025-09-21 16:43+0300\n"
 "Last-Translator: bywkgexmkiltxh <ascdasvcfasx@outlook.com>\n"
 "Language-Team: Turkish <dev@pardus.org.tr>\n"
@@ -60,20 +60,20 @@ msgstr "Bu işlem geri alınamaz."
 msgid "Clear"
 msgstr "Temizle"
 
-#: extension.js:630 extension.js:801
+#: extension.js:630 extension.js:799
 msgid "Cancel"
 msgstr "İptal"
 
 #: extension.js:645
-msgid "Clipboard history cleared"
-msgstr "Pano geçmişi temizlendi"
-
-#: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "Pano geçmişi temizlendi"
 
-#: extension.js:800
+#: extension.js:646
+msgid "Clipboard history cleared"
+msgstr "Pano geçmişi temizlendi"
+
+#: extension.js:798
 msgid "Copied to clipboard"
 msgstr "Panoya kopyalandı"
 

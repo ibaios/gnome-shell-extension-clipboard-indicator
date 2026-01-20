@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 17:46+0100\n"
+"POT-Creation-Date: 2026-01-20 18:06+0100\n"
 "PO-Revision-Date: 2020-10-31 16:25+0100\n"
 "Last-Translator: Meskó Balázs <mesko.balazs@fsf.hu>\n"
 "Language-Team: \n"
@@ -59,20 +59,20 @@ msgstr "Ez a művelet nem vonható vissza."
 msgid "Clear"
 msgstr "Törlés"
 
-#: extension.js:630 extension.js:801
+#: extension.js:630 extension.js:799
 msgid "Cancel"
 msgstr "Mégse"
 
 #: extension.js:645
-msgid "Clipboard history cleared"
-msgstr "Vágólap előzmények törölve"
-
-#: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "Vágólap előzmények törölve"
 
-#: extension.js:800
+#: extension.js:646
+msgid "Clipboard history cleared"
+msgstr "Vágólap előzmények törölve"
+
+#: extension.js:798
 msgid "Copied to clipboard"
 msgstr "Vágólapra másolva"
 

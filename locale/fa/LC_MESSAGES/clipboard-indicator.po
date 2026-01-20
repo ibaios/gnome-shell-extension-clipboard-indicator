@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 60\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 17:46+0100\n"
+"POT-Creation-Date: 2026-01-20 18:06+0100\n"
 "PO-Revision-Date: 2024-04-07 17:57+0330\n"
 "Last-Translator: Avid <avds+git@disroot.org>\n"
 "Language-Team: Farsi <avds+git@disroot.org>\n"
@@ -57,20 +57,20 @@ msgstr "این عملیات نمی‌تواند بازگردانی شود."
 msgid "Clear"
 msgstr "پاک‌سازی"
 
-#: extension.js:630 extension.js:801
+#: extension.js:630 extension.js:799
 msgid "Cancel"
 msgstr "لغو"
 
 #: extension.js:645
-msgid "Clipboard history cleared"
-msgstr "تاریخچهٔ تخته‌گیره پاک شد"
-
-#: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "تاریخچهٔ تخته‌گیره پاک شد"
 
-#: extension.js:800
+#: extension.js:646
+msgid "Clipboard history cleared"
+msgstr "تاریخچهٔ تخته‌گیره پاک شد"
+
+#: extension.js:798
 msgid "Copied to clipboard"
 msgstr "به تخته‌گیره رونوشت شد"
 

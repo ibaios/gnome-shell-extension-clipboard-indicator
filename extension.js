@@ -641,12 +641,10 @@ const ClipboardIndicator = GObject.registerClass({
             }
         });
 
-        if (!invokedAutomatically) {
-            this._showNotification(_("Clipboard history cleared"));
-        }
-        else {
-            this._showNotification(_("Clipboard history cleared automatically"));
-        }
+        const message = invokedAutomatically
+            ? _("Clipboard history cleared automatically")
+            : _("Clipboard history cleared");
+        this._showNotification(message);
     }
 
     _removeAll () {

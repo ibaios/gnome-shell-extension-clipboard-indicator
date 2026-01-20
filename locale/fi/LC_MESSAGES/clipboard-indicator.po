@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 17:46+0100\n"
+"POT-Creation-Date: 2026-01-20 18:06+0100\n"
 "PO-Revision-Date: 2017-09-06 09:53+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
@@ -60,20 +60,20 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: extension.js:630 extension.js:801
+#: extension.js:630 extension.js:799
 msgid "Cancel"
 msgstr ""
 
 #: extension.js:645
-msgid "Clipboard history cleared"
-msgstr "Leikepöydän sisältö tyhjennetty"
-
-#: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "Leikepöydän sisältö tyhjennetty"
 
-#: extension.js:800
+#: extension.js:646
+msgid "Clipboard history cleared"
+msgstr "Leikepöydän sisältö tyhjennetty"
+
+#: extension.js:798
 msgid "Copied to clipboard"
 msgstr "Kopioitu leikepöydälle"
 

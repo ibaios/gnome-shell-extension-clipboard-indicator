@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extension-clipboard-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 17:46+0100\n"
+"POT-Creation-Date: 2026-01-20 18:06+0100\n"
 "PO-Revision-Date: 2020-10-05 23:34+0200\n"
 "Last-Translator: Ibai Oihanguren Sala <ibai@oihanguren.com>\n"
 "Language-Team: \n"
@@ -56,20 +56,20 @@ msgstr "Ezin da eragiketa hau desegin."
 msgid "Clear"
 msgstr "Garbitu"
 
-#: extension.js:630 extension.js:801
+#: extension.js:630 extension.js:799
 msgid "Cancel"
 msgstr "Utzi"
 
 #: extension.js:645
-msgid "Clipboard history cleared"
-msgstr "Arbelaren historia garbituta"
-
-#: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "Arbelaren historia garbituta"
 
-#: extension.js:800
+#: extension.js:646
+msgid "Clipboard history cleared"
+msgstr "Arbelaren historia garbituta"
+
+#: extension.js:798
 msgid "Copied to clipboard"
 msgstr "Arbelera kopiatuta"
 

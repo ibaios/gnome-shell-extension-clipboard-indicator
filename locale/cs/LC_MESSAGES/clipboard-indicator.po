@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 17:46+0100\n"
+"POT-Creation-Date: 2026-01-20 18:06+0100\n"
 "PO-Revision-Date: 2022-03-21 20:40+0100\n"
 "Last-Translator: Radek Šťastný <dedkus@gmail.com>\n"
 "Language-Team: \n"
@@ -57,20 +57,20 @@ msgstr "Tato operace nejde vrátit."
 msgid "Clear"
 msgstr "Vyčistit"
 
-#: extension.js:630 extension.js:801
+#: extension.js:630 extension.js:799
 msgid "Cancel"
 msgstr "Storno"
 
 #: extension.js:645
-msgid "Clipboard history cleared"
-msgstr "Historie schránky vyčištěna"
-
-#: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "Historie schránky vyčištěna"
 
-#: extension.js:800
+#: extension.js:646
+msgid "Clipboard history cleared"
+msgstr "Historie schránky vyčištěna"
+
+#: extension.js:798
 msgid "Copied to clipboard"
 msgstr "Zkopírováno do schránky"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 17:46+0100\n"
+"POT-Creation-Date: 2026-01-20 18:06+0100\n"
 "PO-Revision-Date: 2024-11-19 14:49+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -58,20 +58,20 @@ msgstr "이 동작은 되돌릴 수 없습니다."
 msgid "Clear"
 msgstr "지우기"
 
-#: extension.js:630 extension.js:801
+#: extension.js:630 extension.js:799
 msgid "Cancel"
 msgstr "취소"
 
 #: extension.js:645
-msgid "Clipboard history cleared"
-msgstr "클립보드 기록을 지움"
-
-#: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "클립보드 기록을 지움"
 
-#: extension.js:800
+#: extension.js:646
+msgid "Clipboard history cleared"
+msgstr "클립보드 기록을 지움"
+
+#: extension.js:798
 msgid "Copied to clipboard"
 msgstr "클립보드에 복사됨"
 
