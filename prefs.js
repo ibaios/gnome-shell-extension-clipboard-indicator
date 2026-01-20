@@ -84,6 +84,10 @@ class Settings {
             title: _("Show notification on cycle")
         });
 
+        this.field_clear_notification_toggle = new Adw.SwitchRow({
+            title: _("Show notification on Clear History")
+        });
+
         this.field_confirm_clear_toggle = new Adw.SwitchRow({
             title: _("Prompt for confirmation on Clear History")
         });
@@ -205,6 +209,7 @@ class Settings {
 
         this.notifications.add(this.field_copy_notification_toggle);
         this.notifications.add(this.field_cycle_notification_toggle);
+        this.notifications.add(this.field_clear_notification_toggle);
 
         this.search.add(this.case_sensitive_search);
         this.search.add(this.regex_search);
@@ -217,6 +222,7 @@ class Settings {
         this.schema.bind(PrefsFields.CACHE_ONLY_FAVORITE, this.field_cache_disable, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.NOTIFY_ON_COPY, this.field_copy_notification_toggle, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.NOTIFY_ON_CYCLE, this.field_cycle_notification_toggle, 'active', Gio.SettingsBindFlags.DEFAULT);
+        this.schema.bind(PrefsFields.NOTIFY_ON_CLEAR, this.field_clear_notification_toggle, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.CONFIRM_ON_CLEAR, this.field_confirm_clear_toggle, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.MOVE_ITEM_FIRST, this.field_move_item_first, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.KEEP_SELECTED_ON_CLEAR, this.field_keep_selected_on_clear, 'active', Gio.SettingsBindFlags.DEFAULT);

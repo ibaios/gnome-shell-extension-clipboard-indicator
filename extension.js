@@ -30,6 +30,7 @@ let ENABLE_KEYBINDING         = true;
 let PRIVATEMODE               = false;
 let NOTIFY_ON_COPY            = true;
 let NOTIFY_ON_CYCLE           = true;
+let NOTIFY_ON_CLEAR           = true;
 let CONFIRM_ON_CLEAR          = true;
 let MAX_TOPBAR_LENGTH         = 15;
 let TOPBAR_DISPLAY_MODE       = 1; //0 - only icon, 1 - only clipboard content, 2 - both, 3 - neither
@@ -641,10 +642,12 @@ const ClipboardIndicator = GObject.registerClass({
             }
         });
 
-        const message = invokedAutomatically
-            ? _("Clipboard history cleared automatically")
-            : _("Clipboard history cleared");
-        this._showNotification(message);
+        if (NOTIFY_ON_CLEAR) {
+            const message = invokedAutomatically
+                ? _("Clipboard history cleared automatically")
+                : _("Clipboard history cleared");
+            this._showNotification(message);
+        }
     }
 
     _removeAll () {
@@ -1113,6 +1116,7 @@ const ClipboardIndicator = GObject.registerClass({
         MOVE_ITEM_FIRST             = settings.get_boolean(PrefsFields.MOVE_ITEM_FIRST);
         NOTIFY_ON_COPY              = settings.get_boolean(PrefsFields.NOTIFY_ON_COPY);
         NOTIFY_ON_CYCLE             = settings.get_boolean(PrefsFields.NOTIFY_ON_CYCLE);
+        NOTIFY_ON_CLEAR             = settings.get_boolean(PrefsFields.NOTIFY_ON_CLEAR);
         CONFIRM_ON_CLEAR            = settings.get_boolean(PrefsFields.CONFIRM_ON_CLEAR);
         ENABLE_KEYBINDING           = settings.get_boolean(PrefsFields.ENABLE_KEYBINDING);
         MAX_TOPBAR_LENGTH           = settings.get_int(PrefsFields.TOPBAR_PREVIEW_SIZE);

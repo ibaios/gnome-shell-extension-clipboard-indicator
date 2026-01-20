@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 18:06+0100\n"
+"POT-Creation-Date: 2026-01-20 18:11+0100\n"
 "PO-Revision-Date: 2021-08-27 16:24+0900\n"
 "Last-Translator: nexryai <nexryai@outlook.com>\n"
 "Language-Team: \n"
@@ -21,61 +21,61 @@ msgstr ""
 "X-Poedit-SearchPath-0: prefs.js\n"
 "X-Poedit-SearchPath-1: extension.js\n"
 
-#: extension.js:113
+#: extension.js:114
 msgid "Text will be here"
 msgstr "ここにテキストを入力"
 
-#: extension.js:187
+#: extension.js:188
 msgid "Type here to search..."
 msgstr "検索ワードを入力..."
 
-#: extension.js:256 prefs.js:257
+#: extension.js:257 prefs.js:263
 msgid "Private mode"
 msgstr "プライベートモード"
 
-#: extension.js:270 prefs.js:259
+#: extension.js:271 prefs.js:265
 msgid "Clear history"
 msgstr "履歴を消去"
 
-#: extension.js:315
+#: extension.js:316
 msgid "Settings"
 msgstr "設定"
 
-#: extension.js:338
+#: extension.js:339
 #, fuzzy
 msgid "Clipboard is empty"
 msgstr "クリップボードの内容"
 
-#: extension.js:626
+#: extension.js:627
 msgid "Clear all?"
 msgstr "全消去しますか？"
 
-#: extension.js:627
+#: extension.js:628
 msgid "Are you sure you want to delete all clipboard items?"
 msgstr "クリップボードの履歴を全て削除してよろしいですか？"
 
-#: extension.js:628
+#: extension.js:629
 msgid "This operation cannot be undone."
 msgstr "この操作を元に戻すことはできません。"
 
-#: extension.js:630
+#: extension.js:631
 msgid "Clear"
 msgstr "クリア"
 
-#: extension.js:630 extension.js:799
+#: extension.js:631 extension.js:802
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: extension.js:645
+#: extension.js:647
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "消去しました"
 
-#: extension.js:646
+#: extension.js:648
 msgid "Clipboard history cleared"
 msgstr "消去しました"
 
-#: extension.js:798
+#: extension.js:801
 msgid "Copied to clipboard"
 msgstr "コピーしました"
 
@@ -120,158 +120,163 @@ msgstr "コピー時に通知を表示する"
 
 #: prefs.js:88
 #, fuzzy
-msgid "Prompt for confirmation on Clear History"
+msgid "Show notification on Clear History"
 msgstr "コピー時に通知を表示する"
 
 #: prefs.js:92
+#, fuzzy
+msgid "Prompt for confirmation on Clear History"
+msgstr "コピー時に通知を表示する"
+
+#: prefs.js:96
 msgid "Remove whitespace around text"
 msgstr "テキスト周りのホワイトスペースを削除する"
 
-#: prefs.js:96
+#: prefs.js:100
 msgid "Move item to the top after selection"
 msgstr "選択後にアイテムをトップに移動"
 
-#: prefs.js:100
+#: prefs.js:104
 msgid "Keep selected entry after Clear History"
 msgstr ""
 
-#: prefs.js:104
+#: prefs.js:108
 msgid "Show paste buttons"
 msgstr ""
 
-#: prefs.js:105
+#: prefs.js:109
 msgid "Adds a paste button to each entry that lets you paste it directly"
 msgstr ""
 
-#: prefs.js:109
+#: prefs.js:113
 msgid "Place the pinned section on the bottom"
 msgstr ""
 
-#: prefs.js:110
+#: prefs.js:114
 msgid "Requires restarting the extension"
 msgstr ""
 
-#: prefs.js:114
+#: prefs.js:118
 #, fuzzy
 msgid "Clear clipboard history on system reboot"
 msgstr "消去しました"
 
-#: prefs.js:118
+#: prefs.js:122
 msgid "Paste on select"
 msgstr ""
 
-#: prefs.js:122
+#: prefs.js:126
 msgid "Cache images"
 msgstr ""
 
-#: prefs.js:127
+#: prefs.js:131
 msgid "Excluded Apps"
 msgstr ""
 
-#: prefs.js:128
+#: prefs.js:132
 msgid "Content copied will not be saved while these apps are in focus"
 msgstr ""
 
-#: prefs.js:139
+#: prefs.js:143
 msgid "Case-sensitive search"
 msgstr ""
 
-#: prefs.js:143
+#: prefs.js:147
 msgid "Regular expression matching in search"
 msgstr ""
 
-#: prefs.js:156
+#: prefs.js:160
 #, fuzzy
 msgid "Clear clipboard history on interval"
 msgstr "消去しました"
 
-#: prefs.js:160
+#: prefs.js:164
 msgid "History clear interval (in minutes)"
 msgstr ""
 
-#: prefs.js:172
+#: prefs.js:176
 msgid "UI"
 msgstr ""
 
-#: prefs.js:173
+#: prefs.js:177
 msgid "Behavior"
 msgstr ""
 
-#: prefs.js:174
+#: prefs.js:178
 msgid "Exclusion"
 msgstr ""
 
-#: prefs.js:175
+#: prefs.js:179
 msgid "Limits"
 msgstr ""
 
-#: prefs.js:176
+#: prefs.js:180
 msgid "Topbar"
 msgstr ""
 
-#: prefs.js:177
+#: prefs.js:181
 msgid "Notifications"
 msgstr ""
 
-#: prefs.js:178
+#: prefs.js:182
 msgid "Shortcuts"
 msgstr ""
 
-#: prefs.js:179
+#: prefs.js:183
 msgid "Search"
 msgstr ""
 
-#: prefs.js:244
+#: prefs.js:250
 msgid "Icon"
 msgstr "アイコン"
 
-#: prefs.js:245
+#: prefs.js:251
 msgid "Clipboard Content"
 msgstr "クリップボードの内容"
 
-#: prefs.js:246
+#: prefs.js:252
 msgid "Both"
 msgstr "両方"
 
-#: prefs.js:247
+#: prefs.js:253
 msgid "Neither"
 msgstr ""
 
-#: prefs.js:258
+#: prefs.js:264
 msgid "Toggle the menu"
 msgstr "メニュー"
 
-#: prefs.js:260
+#: prefs.js:266
 msgid "Previous entry"
 msgstr "前へ"
 
-#: prefs.js:261
+#: prefs.js:267
 msgid "Next entry"
 msgstr "次へ"
 
-#: prefs.js:266
+#: prefs.js:272
 #, fuzzy
 msgid "Enable shortcuts"
 msgstr "キーボードショートカット"
 
-#: prefs.js:291
+#: prefs.js:297
 msgid "Disabled"
 msgstr ""
 
-#: prefs.js:300
+#: prefs.js:306
 #, fuzzy
 msgid "Enter shortcut"
 msgstr "キーボードショートカット"
 
-#: prefs.js:387
+#: prefs.js:393
 msgid "Window class name, e.g. \"KeePassXC\""
 msgstr ""
 
-#: prefs.js:399
+#: prefs.js:405
 msgid "Choose from installed applications"
 msgstr ""
 
-#: prefs.js:416
+#: prefs.js:422
 msgid "Search applications..."
 msgstr ""
 

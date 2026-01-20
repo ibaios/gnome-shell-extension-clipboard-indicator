@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 18:06+0100\n"
+"POT-Creation-Date: 2026-01-20 18:11+0100\n"
 "PO-Revision-Date: 2025-09-21 16:43+0300\n"
 "Last-Translator: bywkgexmkiltxh <ascdasvcfasx@outlook.com>\n"
 "Language-Team: Turkish <dev@pardus.org.tr>\n"
@@ -20,60 +20,60 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 48.0\n"
 
-#: extension.js:113
+#: extension.js:114
 msgid "Text will be here"
 msgstr "Metin burada olacak"
 
-#: extension.js:187
+#: extension.js:188
 msgid "Type here to search..."
 msgstr "Aramak için buraya yaz..."
 
-#: extension.js:256 prefs.js:257
+#: extension.js:257 prefs.js:263
 msgid "Private mode"
 msgstr "Gizli kip"
 
-#: extension.js:270 prefs.js:259
+#: extension.js:271 prefs.js:265
 msgid "Clear history"
 msgstr "Geçmişi temizle"
 
-#: extension.js:315
+#: extension.js:316
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: extension.js:338
+#: extension.js:339
 msgid "Clipboard is empty"
 msgstr "Pano boş"
 
-#: extension.js:626
+#: extension.js:627
 msgid "Clear all?"
 msgstr "Hepsi temizlensin mi?"
 
-#: extension.js:627
+#: extension.js:628
 msgid "Are you sure you want to delete all clipboard items?"
 msgstr "Tüm pano öğelerini silmek istediğinizden emin misiniz?"
 
-#: extension.js:628
+#: extension.js:629
 msgid "This operation cannot be undone."
 msgstr "Bu işlem geri alınamaz."
 
-#: extension.js:630
+#: extension.js:631
 msgid "Clear"
 msgstr "Temizle"
 
-#: extension.js:630 extension.js:799
+#: extension.js:631 extension.js:802
 msgid "Cancel"
 msgstr "İptal"
 
-#: extension.js:645
+#: extension.js:647
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "Pano geçmişi temizlendi"
 
-#: extension.js:646
+#: extension.js:648
 msgid "Clipboard history cleared"
 msgstr "Pano geçmişi temizlendi"
 
-#: extension.js:798
+#: extension.js:801
 msgid "Copied to clipboard"
 msgstr "Panoya kopyalandı"
 
@@ -114,156 +114,161 @@ msgid "Show notification on cycle"
 msgstr "Bildirimleri döngüyle göster"
 
 #: prefs.js:88
+#, fuzzy
+msgid "Show notification on Clear History"
+msgstr "Kopyalandığında bildirim göster"
+
+#: prefs.js:92
 msgid "Prompt for confirmation on Clear History"
 msgstr "Geçmişi temizlerken onay iste"
 
-#: prefs.js:92
+#: prefs.js:96
 msgid "Remove whitespace around text"
 msgstr "Metnin çevresindeki boşlukları sil"
 
-#: prefs.js:96
+#: prefs.js:100
 msgid "Move item to the top after selection"
 msgstr "Seçilen öğeyi en üste taşı"
 
-#: prefs.js:100
+#: prefs.js:104
 msgid "Keep selected entry after Clear History"
 msgstr "Seçili girdileri geçmişi temizlerken sakla"
 
-#: prefs.js:104
+#: prefs.js:108
 msgid "Show paste buttons"
 msgstr "Yapıştırma düğmelerini göster"
 
-#: prefs.js:105
+#: prefs.js:109
 msgid "Adds a paste button to each entry that lets you paste it directly"
 msgstr ""
 "Her bir girdiye doğrudan yapıştırmanızı sağlayan bir yapıştırma düğmesi ekler"
 
-#: prefs.js:109
+#: prefs.js:113
 msgid "Place the pinned section on the bottom"
 msgstr "İliştirilmiş bölmeyi aşağıda göster"
 
-#: prefs.js:110
+#: prefs.js:114
 msgid "Requires restarting the extension"
 msgstr "Eklentinin yeniden başlatılmasını gerektirir"
 
-#: prefs.js:114
+#: prefs.js:118
 msgid "Clear clipboard history on system reboot"
 msgstr "Pano geçmişini sistem yeniden başlatıldığında temizle"
 
-#: prefs.js:118
+#: prefs.js:122
 msgid "Paste on select"
 msgstr "Seçerken yapıştır"
 
-#: prefs.js:122
+#: prefs.js:126
 msgid "Cache images"
 msgstr "Resimleri önbellekte tut"
 
-#: prefs.js:127
+#: prefs.js:131
 msgid "Excluded Apps"
 msgstr "Dışlanan Uygulamalar"
 
-#: prefs.js:128
+#: prefs.js:132
 msgid "Content copied will not be saved while these apps are in focus"
 msgstr "Bu uygulamalar odaklanmışsa kopyalanan içerikler kaydedilmeyecek"
 
-#: prefs.js:139
+#: prefs.js:143
 msgid "Case-sensitive search"
 msgstr ""
 
-#: prefs.js:143
+#: prefs.js:147
 msgid "Regular expression matching in search"
 msgstr ""
 
-#: prefs.js:156
+#: prefs.js:160
 #, fuzzy
 msgid "Clear clipboard history on interval"
 msgstr "Pano geçmişini sistem yeniden başlatıldığında temizle"
 
-#: prefs.js:160
+#: prefs.js:164
 msgid "History clear interval (in minutes)"
 msgstr ""
 
-#: prefs.js:172
+#: prefs.js:176
 msgid "UI"
 msgstr "Arayüz"
 
-#: prefs.js:173
+#: prefs.js:177
 msgid "Behavior"
 msgstr "Davranış"
 
-#: prefs.js:174
+#: prefs.js:178
 msgid "Exclusion"
 msgstr "Dışlama"
 
-#: prefs.js:175
+#: prefs.js:179
 msgid "Limits"
 msgstr "Sınırlamalar"
 
-#: prefs.js:176
+#: prefs.js:180
 msgid "Topbar"
 msgstr "Üst Çubuk"
 
-#: prefs.js:177
+#: prefs.js:181
 msgid "Notifications"
 msgstr "Bildirimler"
 
-#: prefs.js:178
+#: prefs.js:182
 msgid "Shortcuts"
 msgstr "Kısayollar"
 
-#: prefs.js:179
+#: prefs.js:183
 msgid "Search"
 msgstr ""
 
-#: prefs.js:244
+#: prefs.js:250
 msgid "Icon"
 msgstr "Simge"
 
-#: prefs.js:245
+#: prefs.js:251
 msgid "Clipboard Content"
 msgstr "Pano İçeriği"
 
-#: prefs.js:246
+#: prefs.js:252
 msgid "Both"
 msgstr "İkisi Birden"
 
-#: prefs.js:247
+#: prefs.js:253
 msgid "Neither"
 msgstr "Hiçbiri"
 
-#: prefs.js:258
+#: prefs.js:264
 msgid "Toggle the menu"
 msgstr "Menüyü değiştir"
 
-#: prefs.js:260
+#: prefs.js:266
 msgid "Previous entry"
 msgstr "Önceki girdi"
 
-#: prefs.js:261
+#: prefs.js:267
 msgid "Next entry"
 msgstr "Sonraki girdi"
 
-#: prefs.js:266
+#: prefs.js:272
 msgid "Enable shortcuts"
 msgstr "Kısayolları etkinleştir"
 
-#: prefs.js:291
+#: prefs.js:297
 msgid "Disabled"
 msgstr "Devre Dışı"
 
-#: prefs.js:300
+#: prefs.js:306
 msgid "Enter shortcut"
 msgstr "Kısayol gir"
 
-#: prefs.js:387
+#: prefs.js:393
 msgid "Window class name, e.g. \"KeePassXC\""
 msgstr "Pencere sınıf adı, örn. \"KeePassXC\""
 
-#: prefs.js:399
+#: prefs.js:405
 msgid "Choose from installed applications"
 msgstr ""
 
-#: prefs.js:416
+#: prefs.js:422
 msgid "Search applications..."
 msgstr ""
 

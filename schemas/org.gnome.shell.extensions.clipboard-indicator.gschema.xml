@@ -109,6 +109,14 @@
         </description>
     </key>
 
+    <key name="notify-on-clear" type="b">
+        <default>true</default>
+        <summary>Show notification on Clear History</summary>
+        <description>
+            If true, a notification is shown when the history is cleared.
+        </description>
+    </key>
+
     <key name="confirm-clear" type="b">
         <default>true</default>
         <summary>Show confirmation dialog on Clear History</summary>

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 18:06+0100\n"
+"POT-Creation-Date: 2026-01-20 18:11+0100\n"
 "PO-Revision-Date: 2025-09-09 20:02+0200\n"
 "Last-Translator: Adam Lewicki <a.lewick95@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -22,60 +22,60 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 3.7\n"
 
-#: extension.js:113
+#: extension.js:114
 msgid "Text will be here"
 msgstr "Treść będzie tutaj"
 
-#: extension.js:187
+#: extension.js:188
 msgid "Type here to search..."
 msgstr "Wpisz tutaj, aby wyszukać..."
 
-#: extension.js:256 prefs.js:257
+#: extension.js:257 prefs.js:263
 msgid "Private mode"
 msgstr "Tryb prywatny"
 
-#: extension.js:270 prefs.js:259
+#: extension.js:271 prefs.js:265
 msgid "Clear history"
 msgstr "Wyczyść historię"
 
-#: extension.js:315
+#: extension.js:316
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: extension.js:338
+#: extension.js:339
 msgid "Clipboard is empty"
 msgstr "Schowek jest pusty"
 
-#: extension.js:626
+#: extension.js:627
 msgid "Clear all?"
 msgstr "Wyczyścić wszystko?"
 
-#: extension.js:627
+#: extension.js:628
 msgid "Are you sure you want to delete all clipboard items?"
 msgstr "Czy jesteś pewien, że chcesz usunąć wszystkie elementy ze schowka?"
 
-#: extension.js:628
+#: extension.js:629
 msgid "This operation cannot be undone."
 msgstr "Tej operacji nie będzie można cofnąć."
 
-#: extension.js:630
+#: extension.js:631
 msgid "Clear"
 msgstr "Wyczyść"
 
-#: extension.js:630 extension.js:799
+#: extension.js:631 extension.js:802
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: extension.js:645
+#: extension.js:647
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "Wyczyszczono historię schowka"
 
-#: extension.js:646
+#: extension.js:648
 msgid "Clipboard history cleared"
 msgstr "Wyczyszczono historię schowka"
 
-#: extension.js:798
+#: extension.js:801
 msgid "Copied to clipboard"
 msgstr "Skopiowano do schowka"
 
@@ -116,160 +116,165 @@ msgid "Show notification on cycle"
 msgstr "Pokaż powiadomienie po przełączeniu"
 
 #: prefs.js:88
+#, fuzzy
+msgid "Show notification on Clear History"
+msgstr "Pokaż okno dialogowe z potwierdzeniem po kliknięciu Wyczyść historię"
+
+#: prefs.js:92
 msgid "Prompt for confirmation on Clear History"
 msgstr "Pokaż powiadomienie po wyczyszczeniu historii"
 
-#: prefs.js:92
+#: prefs.js:96
 msgid "Remove whitespace around text"
 msgstr "Usuń białe znaki przed/po tekście"
 
-#: prefs.js:96
+#: prefs.js:100
 msgid "Move item to the top after selection"
 msgstr "Przenieś na początek po wybraniu"
 
-#: prefs.js:100
+#: prefs.js:104
 msgid "Keep selected entry after Clear History"
 msgstr "Zachowaj wybraną pozycję po wyczyszczeniu historii"
 
-#: prefs.js:104
+#: prefs.js:108
 msgid "Show paste buttons"
 msgstr "Pokaż przyciski wklejania"
 
-#: prefs.js:105
+#: prefs.js:109
 msgid "Adds a paste button to each entry that lets you paste it directly"
 msgstr ""
 "Dodaje przycisk wklejania przy każdym wpisie, który pozwala wkleić go "
 "bezpośrednio"
 
-#: prefs.js:109
+#: prefs.js:113
 msgid "Place the pinned section on the bottom"
 msgstr "Umieść sekcje z przypiętymi pozycjami na dole"
 
-#: prefs.js:110
+#: prefs.js:114
 msgid "Requires restarting the extension"
 msgstr "Wymaga ponownego uruchomienia rozszerzenia"
 
-#: prefs.js:114
+#: prefs.js:118
 msgid "Clear clipboard history on system reboot"
 msgstr "Wyczyść historię przy uruchamianiu systemu"
 
-#: prefs.js:118
+#: prefs.js:122
 msgid "Paste on select"
 msgstr "Wklej po wybraniu"
 
-#: prefs.js:122
+#: prefs.js:126
 msgid "Cache images"
 msgstr "Bufor obrazów"
 
-#: prefs.js:127
+#: prefs.js:131
 msgid "Excluded Apps"
 msgstr "Wykluczone aplikacje"
 
-#: prefs.js:128
+#: prefs.js:132
 msgid "Content copied will not be saved while these apps are in focus"
 msgstr ""
 "Kopiowana treść nie zostanie zapisana, gdy te aplikacje są na pierwszym "
 "planie"
 
-#: prefs.js:139
+#: prefs.js:143
 msgid "Case-sensitive search"
 msgstr ""
 
-#: prefs.js:143
+#: prefs.js:147
 msgid "Regular expression matching in search"
 msgstr ""
 
-#: prefs.js:156
+#: prefs.js:160
 #, fuzzy
 msgid "Clear clipboard history on interval"
 msgstr "Wyczyść historię przy uruchamianiu systemu"
 
-#: prefs.js:160
+#: prefs.js:164
 msgid "History clear interval (in minutes)"
 msgstr ""
 
-#: prefs.js:172
+#: prefs.js:176
 msgid "UI"
 msgstr "Interfejs użytkownika"
 
-#: prefs.js:173
+#: prefs.js:177
 msgid "Behavior"
 msgstr "Zachowanie"
 
-#: prefs.js:174
+#: prefs.js:178
 msgid "Exclusion"
 msgstr "Wykluczanie"
 
-#: prefs.js:175
+#: prefs.js:179
 msgid "Limits"
 msgstr "Limity"
 
-#: prefs.js:176
+#: prefs.js:180
 msgid "Topbar"
 msgstr "Panel systemowy"
 
-#: prefs.js:177
+#: prefs.js:181
 msgid "Notifications"
 msgstr "Powiadomienia"
 
-#: prefs.js:178
+#: prefs.js:182
 msgid "Shortcuts"
 msgstr "Skróty klawiszowe"
 
-#: prefs.js:179
+#: prefs.js:183
 msgid "Search"
 msgstr ""
 
-#: prefs.js:244
+#: prefs.js:250
 msgid "Icon"
 msgstr "Ikona"
 
-#: prefs.js:245
+#: prefs.js:251
 msgid "Clipboard Content"
 msgstr "Zawartość schowka"
 
-#: prefs.js:246
+#: prefs.js:252
 msgid "Both"
 msgstr "Oba"
 
-#: prefs.js:247
+#: prefs.js:253
 msgid "Neither"
 msgstr "Żaden"
 
-#: prefs.js:258
+#: prefs.js:264
 msgid "Toggle the menu"
 msgstr "Pokaż zawartość schowka"
 
-#: prefs.js:260
+#: prefs.js:266
 msgid "Previous entry"
 msgstr "Poprzednia pozycja"
 
-#: prefs.js:261
+#: prefs.js:267
 msgid "Next entry"
 msgstr "Następna pozycja"
 
-#: prefs.js:266
+#: prefs.js:272
 msgid "Enable shortcuts"
 msgstr "Włącz skróty klawiszowe"
 
-#: prefs.js:291
+#: prefs.js:297
 msgid "Disabled"
 msgstr "Wyłączony"
 
-#: prefs.js:300
+#: prefs.js:306
 msgid "Enter shortcut"
 msgstr "Wprowadź skrót klawiszowy"
 
-#: prefs.js:387
+#: prefs.js:393
 msgid "Window class name, e.g. \"KeePassXC\""
 msgstr "Nazwa klasy okna, np. \"KeePassXC\""
 
-#: prefs.js:399
+#: prefs.js:405
 #, fuzzy
 msgid "Choose from installed applications"
 msgstr "Lista wykluczonych aplikacji"
 
-#: prefs.js:416
+#: prefs.js:422
 msgid "Search applications..."
 msgstr ""
 
@@ -374,10 +379,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Jeśli włączone, powiadomienie jest pokazane po wykorzystaniu skrótów "
 #~ "klawiszowych wpisów schowka."
-
-#~ msgid "Show confirmation dialog on Clear History"
-#~ msgstr ""
-#~ "Pokaż okno dialogowe z potwierdzeniem po kliknięciu Wyczyść historię"
 
 #~ msgid ""
 #~ "If true, a confirmation dialog is shown when attempting to Clear History."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 18:06+0100\n"
+"POT-Creation-Date: 2026-01-20 18:11+0100\n"
 "PO-Revision-Date: 2025-02-19 00:12+0200\n"
 "Last-Translator: Yevhen Popok <xalt7x.service@gmail.com>\n"
 "Language-Team: \n"
@@ -20,60 +20,60 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: extension.js:113
+#: extension.js:114
 msgid "Text will be here"
 msgstr "Текст буде тут"
 
-#: extension.js:187
+#: extension.js:188
 msgid "Type here to search..."
 msgstr "Пишіть тут для пошуку..."
 
-#: extension.js:256 prefs.js:257
+#: extension.js:257 prefs.js:263
 msgid "Private mode"
 msgstr "Приватний режим"
 
-#: extension.js:270 prefs.js:259
+#: extension.js:271 prefs.js:265
 msgid "Clear history"
 msgstr "Очистити історію"
 
-#: extension.js:315
+#: extension.js:316
 msgid "Settings"
 msgstr "Параметри"
 
-#: extension.js:338
+#: extension.js:339
 msgid "Clipboard is empty"
 msgstr "Вміст буфера обміну порожній"
 
-#: extension.js:626
+#: extension.js:627
 msgid "Clear all?"
 msgstr "Очистити все?"
 
-#: extension.js:627
+#: extension.js:628
 msgid "Are you sure you want to delete all clipboard items?"
 msgstr "Точно видалити всі записи з буфера обміну?"
 
-#: extension.js:628
+#: extension.js:629
 msgid "This operation cannot be undone."
 msgstr "Цю операцію неможливо скасувати."
 
-#: extension.js:630
+#: extension.js:631
 msgid "Clear"
 msgstr "Очистити"
 
-#: extension.js:630 extension.js:799
+#: extension.js:631 extension.js:802
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: extension.js:645
+#: extension.js:647
 #, fuzzy
 msgid "Clipboard history cleared automatically"
 msgstr "Історію буфера обміну очищено"
 
-#: extension.js:646
+#: extension.js:648
 msgid "Clipboard history cleared"
 msgstr "Історію буфера обміну очищено"
 
-#: extension.js:798
+#: extension.js:801
 msgid "Copied to clipboard"
 msgstr "Скопійовано до буфера обміну"
 
@@ -115,155 +115,160 @@ msgid "Show notification on cycle"
 msgstr "Показувати сповіщення при копіюванні"
 
 #: prefs.js:88
+#, fuzzy
+msgid "Show notification on Clear History"
+msgstr "Показувати сповіщення при копіюванні"
+
+#: prefs.js:92
 msgid "Prompt for confirmation on Clear History"
 msgstr "Підтверджувати очищення історії"
 
-#: prefs.js:92
+#: prefs.js:96
 msgid "Remove whitespace around text"
 msgstr "Вилучати проміжки навколо тексту"
 
-#: prefs.js:96
+#: prefs.js:100
 msgid "Move item to the top after selection"
 msgstr "Переміщувати вибраний елемент вгору"
 
-#: prefs.js:100
+#: prefs.js:104
 msgid "Keep selected entry after Clear History"
 msgstr "Зберігати вибраний запис після очищення історії"
 
-#: prefs.js:104
+#: prefs.js:108
 msgid "Show paste buttons"
 msgstr "Показувати кнопки для вставлення"
 
-#: prefs.js:105
+#: prefs.js:109
 msgid "Adds a paste button to each entry that lets you paste it directly"
 msgstr ""
 "Додає кнопку вставлення до кожного запису, що дозволяє вставляти їх напряму"
 
-#: prefs.js:109
+#: prefs.js:113
 msgid "Place the pinned section on the bottom"
 msgstr "Розмістити секцію з пришпиленим знизу"
 
-#: prefs.js:110
+#: prefs.js:114
 msgid "Requires restarting the extension"
 msgstr "Потребує перезапуску розширення"
 
-#: prefs.js:114
+#: prefs.js:118
 msgid "Clear clipboard history on system reboot"
 msgstr "Очищати історію буфера обміну під час перезапуску"
 
-#: prefs.js:118
+#: prefs.js:122
 msgid "Paste on select"
 msgstr "Вставляти під час вибору"
 
-#: prefs.js:122
+#: prefs.js:126
 msgid "Cache images"
 msgstr "Кешувати зображення"
 
-#: prefs.js:127
+#: prefs.js:131
 msgid "Excluded Apps"
 msgstr ""
 
-#: prefs.js:128
+#: prefs.js:132
 msgid "Content copied will not be saved while these apps are in focus"
 msgstr ""
 
-#: prefs.js:139
+#: prefs.js:143
 msgid "Case-sensitive search"
 msgstr ""
 
-#: prefs.js:143
+#: prefs.js:147
 msgid "Regular expression matching in search"
 msgstr ""
 
-#: prefs.js:156
+#: prefs.js:160
 #, fuzzy
 msgid "Clear clipboard history on interval"
 msgstr "Очищати історію буфера обміну під час перезапуску"
 
-#: prefs.js:160
+#: prefs.js:164
 msgid "History clear interval (in minutes)"
 msgstr ""
 
-#: prefs.js:172
+#: prefs.js:176
 msgid "UI"
 msgstr "Інтерфейс"
 
-#: prefs.js:173
+#: prefs.js:177
 msgid "Behavior"
 msgstr "Поведінка"
 
-#: prefs.js:174
+#: prefs.js:178
 msgid "Exclusion"
 msgstr ""
 
-#: prefs.js:175
+#: prefs.js:179
 msgid "Limits"
 msgstr "Обмеження"
 
-#: prefs.js:176
+#: prefs.js:180
 msgid "Topbar"
 msgstr "Верхня панель"
 
-#: prefs.js:177
+#: prefs.js:181
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: prefs.js:178
+#: prefs.js:182
 msgid "Shortcuts"
 msgstr "Клавіатурні скорочення"
 
-#: prefs.js:179
+#: prefs.js:183
 msgid "Search"
 msgstr ""
 
-#: prefs.js:244
+#: prefs.js:250
 msgid "Icon"
 msgstr "Піктограма"
 
-#: prefs.js:245
+#: prefs.js:251
 msgid "Clipboard Content"
 msgstr "Вміст буфера обміну"
 
-#: prefs.js:246
+#: prefs.js:252
 msgid "Both"
 msgstr "Все"
 
-#: prefs.js:247
+#: prefs.js:253
 msgid "Neither"
 msgstr "Нічого"
 
-#: prefs.js:258
+#: prefs.js:264
 msgid "Toggle the menu"
 msgstr "Перемкнути меню"
 
-#: prefs.js:260
+#: prefs.js:266
 msgid "Previous entry"
 msgstr "Попередній запис"
 
-#: prefs.js:261
+#: prefs.js:267
 msgid "Next entry"
 msgstr "Наступний запис"
 
-#: prefs.js:266
+#: prefs.js:272
 msgid "Enable shortcuts"
 msgstr "Увімкнути клавіатурні скорочення"
 
-#: prefs.js:291
+#: prefs.js:297
 msgid "Disabled"
 msgstr "Вимкнено"
 
-#: prefs.js:300
+#: prefs.js:306
 msgid "Enter shortcut"
 msgstr "Введіть клавіатурне скорочення"
 
-#: prefs.js:387
+#: prefs.js:393
 msgid "Window class name, e.g. \"KeePassXC\""
 msgstr ""
 
-#: prefs.js:399
+#: prefs.js:405
 msgid "Choose from installed applications"
 msgstr ""
 
-#: prefs.js:416
+#: prefs.js:422
 msgid "Search applications..."
 msgstr ""
