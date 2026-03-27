@@ -326,6 +326,11 @@ export class ClipboardEntry {
         return this.#mimetype.startsWith('image/');
     }
 
+    setText (text) {
+        if (!this.isText()) return;
+        this.#bytes = new TextEncoder().encode(text);
+    }
+
     asBytes () {
         return GLib.Bytes.new(this.#bytes);
     }

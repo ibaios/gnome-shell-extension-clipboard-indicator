@@ -1,4 +1,5 @@
 import Clutter from 'gi://Clutter';
+import Cogl from 'gi://Cogl';
 import GObject from 'gi://GObject';
 import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
@@ -7,6 +8,7 @@ import St from 'gi://St';
 import * as AnimationUtils from 'resource:///org/gnome/shell/misc/animationUtils.js';
 import * as MessageTray from 'resource:///org/gnome/shell/ui/messageTray.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as ModalDialog from 'resource:///org/gnome/shell/ui/modalDialog.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 import { Extension, gettext as _ } from 'resource:///org/gnome/shell/extensions/extension.js';
@@ -660,6 +662,23 @@ const ClipboardIndicator = GObject.registerClass({
             menuItem.actor.add_child(menuItem.imagePreviewBtn);
         }
 
+        // Edit button (text entries only)
+        if (entry.isText()) {
+            menuItem.editBtn = new St.Button({
+                style_class: 'ci-action-btn',
+                can_focus: true,
+                child: new St.Icon({
+                    icon_name: 'document-edit-symbolic',
+                    style_class: 'system-status-icon',
+                }),
+                x_align: Clutter.ActorAlign.END,
+                x_expand: true,
+                y_expand: true,
+            });
+            menuItem.editBtn.connect('clicked', () => this.#showEditDialog(menuItem));
+            menuItem.actor.add_child(menuItem.editBtn);
+        }
+
         // Favorite button
         let iconfav = new St.Icon({
             icon_name: 'view-pin-symbolic',
@@ -671,7 +690,7 @@ const ClipboardIndicator = GObject.registerClass({
             can_focus: true,
             child: iconfav,
             x_align: Clutter.ActorAlign.END,
-            x_expand: !entry.isImage(),
+            x_expand: !entry.isImage() && !entry.isText(),
             y_expand: true
         });
 
@@ -1592,6 +1611,69 @@ const ClipboardIndicator = GObject.registerClass({
             console.error('Clipboard Indicator: failed to load image preview');
             console.error(e);
         });
+    }
+
+    #showEditDialog (menuItem) {
+        const dialog = new ModalDialog.ModalDialog({ destroyOnClose: true });
+
+        const scrollView = new St.ScrollView({
+            hscrollbar_policy: St.PolicyType.NEVER,
+            vscrollbar_policy: St.PolicyType.AUTOMATIC,
+            x_expand: true,
+            y_expand: false,
+            style: 'min-width: 400px; min-height: 100px; max-height: 400px;',
+        });
+
+        const clutterText = new Clutter.Text({
+            text: menuItem.entry.getStringValue(),
+            editable: true,
+            reactive: true,
+            single_line_mode: false,
+            activatable: false,
+            line_wrap: true,
+
+        });
+
+        const white = new Cogl.Color();
+        white.init_from_4f(1.0, 1.0, 1.0, 1.0);
+        const selectionBlue = new Cogl.Color();
+        selectionBlue.init_from_4f(0.39, 0.59, 1.0, 0.71);
+        clutterText.color = white;
+        clutterText.selection_color = selectionBlue;
+        clutterText.selected_text_color = white;
+
+        const textBox = new St.BoxLayout({
+            style_class: 'ci-edit-textbox',
+            x_expand: true,
+            y_expand: true,
+            vertical: true,
+        });
+
+        textBox.add_child(clutterText);
+
+        scrollView.add_child(textBox);
+        dialog.contentLayout.add_child(scrollView);
+
+        dialog.addButton({
+            label: _('Discard'),
+            action: () => dialog.close(),
+            key: Clutter.KEY_Escape,
+        });
+
+        dialog.addButton({
+            label: _('Save'),
+            action: () => {
+                const newText = clutterText.get_text();
+                menuItem.entry.setText(newText);
+                menuItem.clipContents = newText;
+                this._setEntryLabel(menuItem);
+                this._updateCache();
+                dialog.close();
+            },
+            default: true,
+        });
+
+        dialog.open();
     }
 
     #closeImagePreview () {
