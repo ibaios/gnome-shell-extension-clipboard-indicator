@@ -1,20 +1,23 @@
 # Czech translation for gnome-shell-extension-clipboard-indicator.
 # Copyright (C) 2014-2017, Yotam Bar-On
 # This file is distributed under the same license as the gnome-shell-extension-clipboard-indicator package.
+# Translators:
 # Daniel Rusek <mail@asciiwolf.com>, 2017.
+# Radek Šťastný <dedkus@gmail.com>, 2022
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-21 16:41+0300\n"
-"PO-Revision-Date: 2022-03-21 20:40+0100\n"
-"Last-Translator: Radek Šťastný <dedkus@gmail.com>\n"
+"POT-Creation-Date: 2025-09-22 01:35+0200\n"
+"PO-Revision-Date: 2026-01-14 14:48+0100\n"
+"Last-Translator: Ludek Vydra <lvtran@u.k2.cz>\n"
 "Language-Team: \n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
 
 #: extension.js:113
 msgid "Text will be here"
@@ -26,7 +29,7 @@ msgstr "Vyhledávejte psaním…"
 
 #: extension.js:256 prefs.js:257
 msgid "Private mode"
-msgstr "Stop (proti úniku citlivých údajů)"
+msgstr "Soukromý režim"
 
 #: extension.js:270 prefs.js:259
 msgid "Clear history"
@@ -39,7 +42,7 @@ msgstr "Nastavení"
 #: extension.js:338
 #, fuzzy
 msgid "Clipboard is empty"
-msgstr "Obsah schránky"
+msgstr "Schránka je prázdná"
 
 #: extension.js:626
 msgid "Clear all?"
@@ -68,7 +71,7 @@ msgstr "Historie schránky vyčištěna"
 #: extension.js:648
 #, fuzzy
 msgid "Clipboard history cleared automatically"
-msgstr "Historie schránky vyčištěna"
+msgstr "Historie schránky automaticky vyčištěna"
 
 #: extension.js:800
 msgid "Copied to clipboard"
@@ -85,7 +88,7 @@ msgstr "Délka náhledu (znaky)"
 #: prefs.js:49
 #, fuzzy
 msgid "Max cache file size (MB)"
-msgstr "Velikost mezipaměti nejvýše (KB)"
+msgstr "Velikost souboru mezipaměti max (MB)"
 
 #: prefs.js:58
 msgid "Number of characters in top bar"
@@ -102,7 +105,7 @@ msgstr "Nezobrazovat šipku dolů v horní liště"
 #: prefs.js:76
 #, fuzzy
 msgid "Cache only pinned items"
-msgstr "Ukládat do mezipaměti pouze oblíbené"
+msgstr "Ukládat do mezipaměti pouze připnuté"
 
 #: prefs.js:80
 msgid "Show notification on copy"
@@ -111,7 +114,7 @@ msgstr "Při zkopírování zobrazit oznámení"
 #: prefs.js:84
 #, fuzzy
 msgid "Show notification on cycle"
-msgstr "Při zkopírování zobrazit oznámení"
+msgstr "Zobrazit oznámení cyklicky"
 
 #: prefs.js:88
 msgid "Show confirmation on Clear History"
@@ -127,93 +130,92 @@ msgstr "Po výběru posunout položku na začátek seznamu"
 
 #: prefs.js:100
 msgid "Keep selected entry after Clear History"
-msgstr ""
+msgstr "Ponechej položku po Vyčištění historie"
 
 #: prefs.js:104
 msgid "Show paste buttons"
-msgstr ""
+msgstr "Zobraz tlačítko Vložit"
 
 #: prefs.js:105
 msgid "Adds a paste button to each entry that lets you paste it directly"
-msgstr ""
+msgstr "Přidej tlačítko Vložit ke každé položce k přímému vložení"
 
 #: prefs.js:109
 msgid "Place the pinned section on the bottom"
-msgstr ""
+msgstr "Umísti připnutou část dolů"
 
 #: prefs.js:110
 msgid "Requires restarting the extension"
-msgstr ""
+msgstr "Vyžaduje restart rozšíření"
 
 #: prefs.js:114
 #, fuzzy
 msgid "Clear clipboard history on system reboot"
-msgstr "Historie schránky vyčištěna"
+msgstr "Vyčisti historii schránky při restartu"
 
 #: prefs.js:118
 msgid "Paste on select"
-msgstr ""
+msgstr "Vložit do výběru"
 
 #: prefs.js:122
 msgid "Cache images"
-msgstr ""
+msgstr "Obrázky do mezipaměti"
 
 #: prefs.js:127
 msgid "Excluded Apps"
-msgstr ""
+msgstr "Vyloučené aplikace"
 
 #: prefs.js:128
 msgid "Content copied will not be saved while these apps are in focus"
-msgstr ""
+msgstr "Obsah nebude uložen, jsou-li tyto aplikace aktivní"
 
 #: prefs.js:139
 msgid "Case-sensitive search"
-msgstr ""
+msgstr "Hledání s rozlišováním velkých a malých písmen"
 
 #: prefs.js:143
 msgid "Regular expression matching in search"
-msgstr ""
+msgstr "Použití regulárních výrazů při vyhledávání"
 
 #: prefs.js:156
-#, fuzzy
 msgid "Clear clipboard history on interval"
-msgstr "Historie schránky vyčištěna"
+msgstr "Vyčisti historii schránky v intervalu"
 
 #: prefs.js:160
 msgid "History clear interval (in minutes)"
-msgstr ""
+msgstr "Interval čištění historie (minuty)"
 
 #: prefs.js:172
 msgid "UI"
-msgstr ""
+msgstr "Uživatelské rozhraní"
 
 #: prefs.js:173
 msgid "Behavior"
-msgstr ""
+msgstr "Chování"
 
 #: prefs.js:174
 msgid "Exclusion"
-msgstr ""
+msgstr "Vyloučení"
 
 #: prefs.js:175
 msgid "Limits"
-msgstr ""
+msgstr "Limity"
 
 #: prefs.js:176
 msgid "Topbar"
-msgstr ""
+msgstr "Horní lišta"
 
 #: prefs.js:177
 msgid "Notifications"
-msgstr ""
+msgstr "Oznámení"
 
 #: prefs.js:178
 msgid "Shortcuts"
-msgstr ""
+msgstr "Zkratky"
 
 #: prefs.js:179
 msgid "Search"
-msgstr ""
+msgstr "Hledání"
 
 #: prefs.js:244
 msgid "Icon"
@@ -229,7 +231,7 @@ msgstr "Obojí"
 
 #: prefs.js:247
 msgid "Neither"
-msgstr ""
+msgstr "Nic"
 
 #: prefs.js:258
 msgid "Toggle the menu"
@@ -246,34 +248,25 @@ msgstr "Následující položka"
 #: prefs.js:266
 #, fuzzy
 msgid "Enable shortcuts"
-msgstr "Klávesové zkratky"
+msgstr "Povol klávesové zkratky"
 
 #: prefs.js:291
 msgid "Disabled"
-msgstr ""
+msgstr "Zakázáno"
 
 #: prefs.js:300
 #, fuzzy
 msgid "Enter shortcut"
-msgstr "Klávesové zkratky"
+msgstr "Vlož klávesovou zkratku"
 
 #: prefs.js:387
 msgid "Window class name, e.g. \"KeePassXC\""
-msgstr ""
+msgstr "Název třídy okna, např. \"KeePassXC\""
 
 #: prefs.js:399
 msgid "Choose from installed applications"
-msgstr ""
+msgstr "Vyber z instalovaných aplikací"
 
 #: prefs.js:416
 msgid "Search applications..."
-msgstr ""
-
-#~ msgid "Refresh Interval (ms)"
-#~ msgstr "Interval obnovování (ms)"
-
-#~ msgid "Enable Deletion"
-#~ msgstr "Zapnout mazání"
-
-#~ msgid "Disable cache file"
-#~ msgstr "Nepoužívat mezipaměť (soubor)"
+msgstr "Hledej aplikace..."
