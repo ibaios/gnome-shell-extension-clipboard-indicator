@@ -653,7 +653,7 @@ const ClipboardIndicator = GObject.registerClass({
                     style_class: 'system-status-icon'
                 }),
                 x_align: Clutter.ActorAlign.END,
-                x_expand: false,
+                x_expand: true,
                 y_expand: true,
             });
             menuItem.imagePreviewBtn.connect('clicked', () => this.#showImagePreview(entry));
@@ -671,7 +671,7 @@ const ClipboardIndicator = GObject.registerClass({
             can_focus: true,
             child: iconfav,
             x_align: Clutter.ActorAlign.END,
-            x_expand: true,
+            x_expand: !entry.isImage(),
             y_expand: true
         });
 
