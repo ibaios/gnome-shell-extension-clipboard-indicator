@@ -629,6 +629,12 @@ const ClipboardIndicator = GObject.registerClass({
                         return Clutter.EVENT_STOP;
                     }
                     break;
+                case Clutter.KEY_e:
+                    if (entry.isText()) {
+                        this.#showEditDialog(menuItem, true);
+                        return Clutter.EVENT_STOP;
+                    }
+                    break;
                 case Clutter.KEY_KP_Enter:
                 case Clutter.KEY_Return:
                     if (PASTE_ON_SELECT) {
@@ -1613,8 +1619,15 @@ const ClipboardIndicator = GObject.registerClass({
         });
     }
 
-    #showEditDialog (menuItem) {
+    #showEditDialog (menuItem, reopenOnClose = false) {
         const dialog = new ModalDialog.ModalDialog({ destroyOnClose: true });
+
+        const onDialogClose = () => {
+            if (reopenOnClose) {
+                this._focusItemOnOpen = menuItem;
+                this.menu.open();
+            }
+        };
 
         const scrollView = new St.ScrollView({
             hscrollbar_policy: St.PolicyType.NEVER,
@@ -1656,7 +1669,10 @@ const ClipboardIndicator = GObject.registerClass({
 
         dialog.addButton({
             label: _('Discard'),
-            action: () => dialog.close(),
+            action: () => {
+                dialog.close();
+                onDialogClose();
+            },
             key: Clutter.KEY_Escape,
         });
 
@@ -1669,11 +1685,14 @@ const ClipboardIndicator = GObject.registerClass({
                 this._setEntryLabel(menuItem);
                 this._updateCache();
                 dialog.close();
+                onDialogClose();
             },
             default: true,
         });
 
+        if (reopenOnClose) this.menu.close();
         dialog.open();
+        clutterText.grab_key_focus();
     }
 
     #closeImagePreview () {
