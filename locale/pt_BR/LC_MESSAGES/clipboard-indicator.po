@@ -266,7 +266,7 @@ msgstr "Atalhos do teclado"
 
 #: prefs.js:387
 msgid "Window class name, e.g. \"KeePassXC\""
-msgstr "Nome da classe da janela, por exemplo, "KeePassXC""
+msgstr "Nome da classe da janela, por exemplo, \"KeePassXC\""
 
 #: prefs.js:399
 msgid "Choose from installed applications"

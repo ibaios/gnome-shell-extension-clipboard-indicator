@@ -6,6 +6,7 @@ export const PrefsFields = {
     DELETE                          : 'enable-deletion',
     NOTIFY_ON_COPY                  : 'notify-on-copy',
     NOTIFY_ON_CYCLE                 : 'notify-on-cycle',
+    NOTIFY_ON_CLEAR                 : 'notify-on-clear',
     CONFIRM_ON_CLEAR                : 'confirm-clear',
     MOVE_ITEM_FIRST                 : 'move-item-first',
     ENABLE_KEYBINDING               : 'enable-keybindings',

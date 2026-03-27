@@ -30,6 +30,7 @@ let ENABLE_KEYBINDING         = true;
 let PRIVATEMODE               = false;
 let NOTIFY_ON_COPY            = true;
 let NOTIFY_ON_CYCLE           = true;
+let NOTIFY_ON_CLEAR           = true;
 let CONFIRM_ON_CLEAR          = true;
 let MAX_TOPBAR_LENGTH         = 15;
 let TOPBAR_DISPLAY_MODE       = 1; //0 - only icon, 1 - only clipboard content, 2 - both, 3 - neither
@@ -333,7 +334,7 @@ const ClipboardIndicator = GObject.registerClass({
         timerBox.add_child(this.timerLabel);
         timerBox.add_child(this.resetTimerButton);
         this.clearMenuItem.add_child(timerBox);
-        
+
         this.clearMenuItem.connect('activate', that._removeAll.bind(that));
 
         // Add 'Settings' menu item to open settings
@@ -515,7 +516,7 @@ const ClipboardIndicator = GObject.registerClass({
         // when focus is at the last element of the displayed list
         let beforeMenuItem = this.clipItemsRadioGroup[currentIndex + 1];
         if(beforeMenuItem.actor.visible){
-          return beforeMenuItem; 
+          return beforeMenuItem;
         }
 
         return null;
@@ -675,11 +676,11 @@ const ClipboardIndicator = GObject.registerClass({
             }
         });
 
-        if (!invokedAutomatically) {
-            this._showNotification(_("Clipboard history cleared"));
-        }
-        else {
-            this._showNotification(_("Clipboard history cleared automatically"));
+        if (NOTIFY_ON_CLEAR) {
+            const message = invokedAutomatically
+                ? _("Clipboard history cleared automatically")
+                : _("Clipboard history cleared");
+            this._showNotification(message);
         }
     }
 
@@ -805,7 +806,7 @@ const ClipboardIndicator = GObject.registerClass({
 
         const focussedWindow = Shell.Global.get().display.focusWindow;
         const wmClass = focussedWindow?.get_wm_class();
-        
+
         if (wmClass && EXCLUDED_APPS.includes(wmClass)) return; // Excluded app, do not.
 
         if (this.#refreshInProgress) return;
@@ -907,8 +908,6 @@ const ClipboardIndicator = GObject.registerClass({
             this._onHistoryIntervalClearSettingsChanged.bind(this)
         );
 
-
-        
         if (!CLEAR_HISTORY_ON_INTERVAL) {
             this._updateIntervalTimer();
             return;
@@ -969,7 +968,7 @@ const ClipboardIndicator = GObject.registerClass({
         const timeoutMs = (NEXT_HISTORY_CLEAR - currentTime) * 1000;
 
         this.extension.settings.set_int(PrefsFields.NEXT_HISTORY_CLEAR, NEXT_HISTORY_CLEAR);
-        
+
         this._updateIntervalTimer();
         this._timerIntervalId = setInterval(() => {
             this._updateIntervalTimer();
@@ -1155,6 +1154,7 @@ const ClipboardIndicator = GObject.registerClass({
         MOVE_ITEM_FIRST             = settings.get_boolean(PrefsFields.MOVE_ITEM_FIRST);
         NOTIFY_ON_COPY              = settings.get_boolean(PrefsFields.NOTIFY_ON_COPY);
         NOTIFY_ON_CYCLE             = settings.get_boolean(PrefsFields.NOTIFY_ON_CYCLE);
+        NOTIFY_ON_CLEAR             = settings.get_boolean(PrefsFields.NOTIFY_ON_CLEAR);
         CONFIRM_ON_CLEAR            = settings.get_boolean(PrefsFields.CONFIRM_ON_CLEAR);
         ENABLE_KEYBINDING           = settings.get_boolean(PrefsFields.ENABLE_KEYBINDING);
         MAX_TOPBAR_LENGTH           = settings.get_int(PrefsFields.TOPBAR_PREVIEW_SIZE);
@@ -1274,7 +1274,7 @@ const ClipboardIndicator = GObject.registerClass({
 
         this.extension.settings.disconnect(this._settingsChangedId);
         this._settingsChangedId = null;
-        
+
         if (this._intervalSettingChangedId) {
             this.extension.settings.disconnect(this._intervalSettingChangedId);
             this._intervalSettingChangedId = null;
@@ -1284,7 +1284,7 @@ const ClipboardIndicator = GObject.registerClass({
             this.extension.settings.disconnect(this._intervalToggleChangedId);
             this._intervalToggleChangedId = null;
         }
-        
+
         if (this._historyClearTimeoutId) {
             clearTimeout(this._historyClearTimeoutId);
             this._historyClearTimeoutId = null;
@@ -1325,7 +1325,7 @@ const ClipboardIndicator = GObject.registerClass({
                 i--;                                 //get the previous index
                 if (i < 0) i = menuItems.length - 1; //cycle if out of bound
                 let index = i + 1;                   //index to be displayed
-                
+
                 if(NOTIFY_ON_CYCLE) {
                     that._showNotification(index + ' / ' + menuItems.length + ': ' + menuItems[i].entry.getStringValue());
                 }
@@ -1446,7 +1446,7 @@ const ClipboardIndicator = GObject.registerClass({
                 if (type === "UTF8_STRING") {
                     type = "text/plain;charset=utf-8";
                 }
-                
+
                 const entry = new ClipboardEntry(type, bytes.get_data(), false);
                 if (CACHE_IMAGES && entry.isImage()) {
                     this.registry.writeEntryFile(entry);
