@@ -10,16 +10,25 @@ export default class ClipboardIndicatorPreferences extends ExtensionPreferences 
     fillPreferencesWindow (window) {
         window._settings = this.getSettings();
         const settingsUI = new Settings(window._settings);
-        const page = new Adw.PreferencesPage();
-        page.add(settingsUI.ui);
-        page.add(settingsUI.behavior);
-        page.add(settingsUI.search);
-        page.add(settingsUI.limits);
-        page.add(settingsUI.exclusion);
-        page.add(settingsUI.topbar);
-        page.add(settingsUI.notifications);
-        page.add(settingsUI.shortcuts);
-        window.add(page);
+
+        const tabs = [
+            { title: _('UI'),            iconName: 'view-grid-symbolic',               group: settingsUI.ui },
+            { title: _('Behavior'),      iconName: 'system-run-symbolic',           group: settingsUI.behavior },
+            { title: _('Search'),        iconName: 'system-search-symbolic',           group: settingsUI.search },
+            { title: _('Limits'),        iconName: 'preferences-system-symbolic',      group: settingsUI.limits },
+            { title: _('Exclusion'),     iconName: 'action-unavailable-symbolic',      group: settingsUI.exclusion },
+            { title: _('Topbar'),        iconName: 'edit-paste-symbolic',              group: settingsUI.topbar },
+            { title: _('Notifications'), iconName: 'emoji-objects-symbolic',               group: settingsUI.notifications },
+            { title: _('Shortcuts'),     iconName: 'input-keyboard-symbolic',          group: settingsUI.shortcuts },
+        ];
+
+        window.set_default_size(700, 650);
+
+        for (const { title, iconName, group } of tabs) {
+            const page = new Adw.PreferencesPage({ title, icon_name: iconName });
+            page.add(group);
+            window.add(page);
+        }
     }
 }
 
@@ -192,17 +201,17 @@ class Settings {
         this.search = new Adw.PreferencesGroup({title: _('Search')});
 
         this.ui.add(this.field_preview_size);
-        this.ui.add(this.field_move_item_first);
-        this.ui.add(this.field_strip_text);
-        this.ui.add(this.field_keep_selected_on_clear);
+        this.ui.add(this.field_confirm_clear_toggle);
         this.ui.add(this.field_paste_button);
         this.ui.add(this.field_pinned_on_bottom);
-        this.ui.add(this.field_confirm_clear_toggle);
         this.ui.add(this.field_show_search_bar);
         this.ui.add(this.field_show_private_mode);
         this.ui.add(this.field_show_settings_button);
         this.ui.add(this.field_show_clear_history_button);
 
+        this.behavior.add(this.field_strip_text);
+        this.behavior.add(this.field_move_item_first);
+        this.behavior.add(this.field_keep_selected_on_clear);
         this.behavior.add(this.field_paste_on_select);
         this.behavior.add(this.field_cache_images);
         this.behavior.add(this.field_clear_on_boot);
