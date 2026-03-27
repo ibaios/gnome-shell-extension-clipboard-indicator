@@ -89,7 +89,15 @@ export class Registry {
 
                         if (success) {
                             let max_size = this.settings.get_int(PrefsFields.HISTORY_SIZE);
-                            const registry = JSON.parse(new TextDecoder().decode(contents));
+                            const cacheTextData = new TextDecoder().decode(contents);
+                            var registry;
+                            if (cacheTextData.trim().length == 0) {
+                                // console.log('Clipboard Indicator: returning [] due to empty registry file');
+                                registry = [];
+                            } else {
+                                // console.log('Clipboard Indicator: work after returning [] due to empty registry file');
+                                registry = JSON.parse(cacheTextData);
+                            }
                             const entriesPromises = registry.map(
                                 jsonEntry => {
                                     return ClipboardEntry.fromJSON(jsonEntry)
