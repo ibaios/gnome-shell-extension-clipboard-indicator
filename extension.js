@@ -234,7 +234,11 @@ const ClipboardIndicator = GObject.registerClass({
             this._setFocusOnOpenTimeout = setTimeout(() => {
                 if (!open) return;
 
-                if (SHOW_SEARCH_BAR && this.clipItemsRadioGroup.length > 0) {
+                if (this._focusItemOnOpen) {
+                    const item = this._focusItemOnOpen;
+                    this._focusItemOnOpen = null;
+                    global.stage.set_key_focus(item.actor);
+                } else if (SHOW_SEARCH_BAR && this.clipItemsRadioGroup.length > 0) {
                     that.searchEntry.set_text('');
                     global.stage.set_key_focus(that.searchEntry);
                 } else if (this.clipItemsRadioGroup.length > 0) {
@@ -614,6 +618,15 @@ const ClipboardIndicator = GObject.registerClass({
                 case Clutter.KEY_v:
                     this.#pasteItem(menuItem);
                     return Clutter.EVENT_STOP;
+                case Clutter.KEY_h:
+                    if (entry.isImage()) {
+                        this.#showImagePreview(entry, () => {
+                            this._focusItemOnOpen = menuItem;
+                            this.menu.open();
+                        });
+                        return Clutter.EVENT_STOP;
+                    }
+                    break;
                 case Clutter.KEY_KP_Enter:
                 case Clutter.KEY_Return:
                     if (PASTE_ON_SELECT) {
@@ -1494,7 +1507,7 @@ const ClipboardIndicator = GObject.registerClass({
         }, 50);
     }
 
-    #showImagePreview (entry) {
+    #showImagePreview (entry, onClose = null) {
         this.#closeImagePreview();
         this.menu.close();
 
@@ -1514,7 +1527,10 @@ const ClipboardIndicator = GObject.registerClass({
         global.stage.add_child(overlay);
         overlay.grab_key_focus();
 
-        const close = () => this.#closeImagePreview();
+        const close = () => {
+            this.#closeImagePreview();
+            if (onClose) onClose();
+        };
 
         overlay._previewClickId = overlay.connect('button-press-event', () => {
             close();
