@@ -77,6 +77,7 @@ const ClipboardIndicator = GObject.registerClass({
     GTypeName: 'ClipboardIndicator'
 }, class ClipboardIndicator extends PanelMenu.Button {
     #refreshInProgress = false;
+    #_imagePreviewOverlay = null;
 
     destroy () {
         this._destroyed = true;
@@ -85,6 +86,7 @@ const ClipboardIndicator = GObject.registerClass({
         this._disconnectSelectionListener();
         this._clearDelayedSelectionTimeout();
         this.#clearTimeouts();
+        this.#closeImagePreview();
         this.dialogManager.destroy();
         this.keyboard.destroy();
 
@@ -627,6 +629,23 @@ const ClipboardIndicator = GObject.registerClass({
 
         this._setEntryLabel(menuItem);
         this.clipItemsRadioGroup.push(menuItem);
+
+        // Image preview button
+        if (entry.isImage()) {
+            menuItem.imagePreviewBtn = new St.Button({
+                style_class: 'ci-action-btn',
+                can_focus: true,
+                child: new St.Icon({
+                    icon_name: 'image-x-generic-symbolic',
+                    style_class: 'system-status-icon'
+                }),
+                x_align: Clutter.ActorAlign.END,
+                x_expand: false,
+                y_expand: true,
+            });
+            menuItem.imagePreviewBtn.connect('clicked', () => this.#showImagePreview(entry));
+            menuItem.actor.add_child(menuItem.imagePreviewBtn);
+        }
 
         // Favorite button
         let iconfav = new St.Icon({
@@ -1473,6 +1492,103 @@ const ClipboardIndicator = GObject.registerClass({
                     this.#updateClipboard(currentlySelected.entry);
             }, 50);
         }, 50);
+    }
+
+    #showImagePreview (entry) {
+        this.#closeImagePreview();
+        this.menu.close();
+
+        const monitor = Main.layoutManager.currentMonitor;
+
+        const overlay = new St.Widget({
+            reactive: true,
+            can_focus: true,
+            x: monitor.x,
+            y: monitor.y,
+            width: monitor.width,
+            height: monitor.height,
+            style: 'background-color: rgba(0, 0, 0, 0.75);',
+        });
+
+        this.#_imagePreviewOverlay = overlay;
+        global.stage.add_child(overlay);
+        overlay.grab_key_focus();
+
+        const close = () => this.#closeImagePreview();
+
+        overlay._previewClickId = overlay.connect('button-press-event', () => {
+            close();
+            return Clutter.EVENT_STOP;
+        });
+
+        overlay._previewKeyId = overlay.connect('key-press-event', (_actor, event) => {
+            if (event.get_key_symbol() === Clutter.KEY_Escape) {
+                close();
+                return Clutter.EVENT_STOP;
+            }
+            return Clutter.EVENT_PROPAGATE;
+        });
+
+        const maxW = Math.floor(monitor.width * 0.5);
+        const maxH = Math.floor(monitor.height * 0.4);
+
+        const bin = new St.Bin({
+            x_align: Clutter.ActorAlign.CENTER,
+            y_align: Clutter.ActorAlign.CENTER,
+        });
+        bin.add_constraint(new Clutter.AlignConstraint({
+            source: overlay,
+            align_axis: Clutter.AlignAxis.X_AXIS,
+            factor: 0.5,
+        }));
+        bin.add_constraint(new Clutter.AlignConstraint({
+            source: overlay,
+            align_axis: Clutter.AlignAxis.Y_AXIS,
+            factor: 0.5,
+        }));
+        overlay.add_child(bin);
+
+        this.registry.getEntryAsTexture(entry).then(actor => {
+            if (this.#_imagePreviewOverlay !== overlay) return;
+            if (!actor) return;
+
+            let contentHandlerId = actor.connect('notify::content', () => {
+                const [, natW] = actor.get_preferred_width(-1);
+                const [, natH] = actor.get_preferred_height(-1);
+
+                if (natW > 0 && natH > 0) {
+                    actor.disconnect(contentHandlerId);
+                    contentHandlerId = null;
+                    const scale = Math.min(1, maxW / natW, maxH / natH);
+                    bin.set_size(Math.round(natW * scale), Math.round(natH * scale));
+                }
+            });
+
+            actor.connect('destroy', () => {
+                if (contentHandlerId) {
+                    actor.disconnect(contentHandlerId);
+                    contentHandlerId = null;
+                }
+            });
+
+            bin.set_child(actor);
+        }).catch(e => {
+            console.error('Clipboard Indicator: failed to load image preview');
+            console.error(e);
+        });
+    }
+
+    #closeImagePreview () {
+        if (!this.#_imagePreviewOverlay) return;
+
+        const overlay = this.#_imagePreviewOverlay;
+        this.#_imagePreviewOverlay = null;
+
+        if (overlay._previewClickId) overlay.disconnect(overlay._previewClickId);
+        if (overlay._previewKeyId) overlay.disconnect(overlay._previewKeyId);
+
+        if (overlay.get_parent()) global.stage.remove_child(overlay);
+        overlay.destroy();
     }
 
     #clearTimeouts () {
