@@ -144,8 +144,6 @@ export class Registry {
     }
 
     async getEntryAsImage (entry) {
-        const filename = this.getEntryFilename(entry);
-
         if (entry.isImage() === false) return;
 
         if (this.#entryFileExists(entry) == false) {
@@ -155,6 +153,18 @@ export class Registry {
         const gicon = Gio.icon_new_for_string(this.getEntryFilename(entry));
         const stIcon = new St.Icon({ gicon });
         return stIcon;
+    }
+
+    async getEntryAsTexture (entry) {
+        if (entry.isImage() === false) return null;
+
+        if (this.#entryFileExists(entry) === false) {
+            await this.writeEntryFile(entry);
+        }
+
+        const file = Gio.file_new_for_path(this.getEntryFilename(entry));
+        const scaleFactor = St.ThemeContext.get_for_stage(global.stage).scale_factor;
+        return St.TextureCache.get_default().load_file_async(file, -1, -1, scaleFactor, 1.0);
     }
 
     getEntryFilename (entry) {
