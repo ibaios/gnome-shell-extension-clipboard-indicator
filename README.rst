@@ -40,7 +40,7 @@ In-Menu Keyboard Controls
 Terminal support
 ^^^^^^^^^^^^^^^^
 
-This works by sending Shift+Insert to programs or Ctrl+Shift+Insert to terminals.
+Pasting from the menu works by sending Shift+Insert to programs or Ctrl+Shift+Insert to terminals.
 
 - To use with tmux, add this to your :code:`.tmux.conf`::
 
