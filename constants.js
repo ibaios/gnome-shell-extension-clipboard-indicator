@@ -12,6 +12,7 @@ export const PrefsFields = {
     TOPBAR_PREVIEW_SIZE             : 'topbar-preview-size',
     TOPBAR_DISPLAY_MODE_ID          : 'display-mode',
     DISABLE_DOWN_ARROW              : 'disable-down-arrow',
+    BLINK_ICON_ON_COPY              : 'blink-icon-on-copy',
     STRIP_TEXT                      : 'strip-text',
     KEEP_SELECTED_ON_CLEAR          : 'keep-selected-on-clear',
     PASTE_BUTTON                    : 'paste-button',

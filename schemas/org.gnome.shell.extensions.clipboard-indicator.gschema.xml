@@ -44,6 +44,14 @@
         <summary>Remove down arrow in top bar</summary>
     </key>
 
+    <key name="blink-icon-on-copy" type="b">
+        <default>false</default>
+        <summary>Blink icon on copy</summary>
+        <description>
+            If true, the topbar icon will blink when content is copied to clipboard.
+        </description>
+    </key>
+
     <key name="clear-on-boot" type="b">
         <default>false</default>
         <summary>Clear clipboard history on every system reboot.</summary>
