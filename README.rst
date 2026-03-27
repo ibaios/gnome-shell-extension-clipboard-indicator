@@ -37,6 +37,24 @@ In-Menu Keyboard Controls
 - :code:`p` to pin item
 - :code:`<Delete>` to delete an item
 
+Terminal support
+^^^^^^^^^^^^^^^^
+
+This works by sending Shift+Insert to programs or Ctrl+Shift+Insert to terminals.
+
+- To use with tmux, add this to your :code:`.tmux.conf`::
+
+    # Add Ctrl Shift Insert to paste for clipboard-indicator
+    bind -T root C-S-IC {
+      run "tmux send-key \"$(xclip -d ${DISPLAY} -o -selection clipboard)\""
+    }
+
+- To use with Ghostty, add this to your :code:`.config/ghostty/config`::
+
+    # Add Ctrl Shift Insert to paste for clipboard-indicator
+    keybind = ctrl+shift+insert=paste_from_clipboard
+  
+
 📦 Install from source
 ----------------
 
