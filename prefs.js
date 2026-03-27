@@ -38,6 +38,7 @@ class Settings {
 
         this.field_size = new Adw.SpinRow({
             title: _("History Size"),
+            subtitle: _("Maximum number of entries to keep in clipboard history"),
             adjustment: new Gtk.Adjustment({
                 lower: 1,
                 upper: 10000,
@@ -47,6 +48,7 @@ class Settings {
 
         this.field_preview_size = new Adw.SpinRow({
             title: _("Preview Size (characters)"),
+            subtitle: _("Number of characters shown per entry in the history menu"),
             adjustment: new Gtk.Adjustment({
                 lower: 10,
                 upper: 100,
@@ -56,6 +58,7 @@ class Settings {
 
         this.field_cache_size = new Adw.SpinRow({
             title: _("Max cache file size (MB)"),
+            subtitle: _("Maximum disk space used for caching clipboard data"),
             adjustment: new Gtk.Adjustment({
                 lower: 1,
                 upper: 1024,
@@ -65,6 +68,7 @@ class Settings {
 
         this.field_topbar_preview_size = new Adw.SpinRow({
             title: _("Number of characters in top bar"),
+            subtitle: _("Length of the clipboard content preview shown in the panel"),
             adjustment: new Gtk.Adjustment({
                 lower: 1,
                 upper: 100,
@@ -78,43 +82,53 @@ class Settings {
         });
 
         this.field_disable_down_arrow = new Adw.SwitchRow({
-            title: _("Remove down arrow in top bar")
+            title: _("Remove down arrow in top bar"),
+            subtitle: _("Hide the dropdown arrow next to the clipboard indicator")
         });
 
         this.field_blink_icon_on_copy = new Adw.SwitchRow({
-            title: _("Blink icon on copy")
+            title: _("Blink icon on copy"),
+            subtitle: _("Briefly flash the indicator icon when something is copied")
         });
 
         this.field_cache_disable = new Adw.SwitchRow({
-            title: _("Cache only pinned items")
+            title: _("Cache only pinned items"),
+            subtitle: _("Only save pinned (favorite) entries to disk")
         });
 
         this.field_copy_notification_toggle = new Adw.SwitchRow({
-            title: _("Show notification on copy")
+            title: _("Show notification on copy"),
+            subtitle: _("Display a notification each time text is copied")
         });
 
         this.field_cycle_notification_toggle = new Adw.SwitchRow({
-            title: _("Show notification on cycle")
+            title: _("Show notification on cycle"),
+            subtitle: _("Display a notification when cycling through entries with shortcuts")
         });
 
         this.field_clear_notification_toggle = new Adw.SwitchRow({
-            title: _("Show notification on Clear History")
+            title: _("Show notification on Clear History"),
+            subtitle: _("Display a notification when clipboard history is cleared")
         });
 
         this.field_confirm_clear_toggle = new Adw.SwitchRow({
-            title: _("Prompt for confirmation on Clear History")
+            title: _("Prompt for confirmation on Clear History"),
+            subtitle: _("Ask before deleting all clipboard entries")
         });
 
         this.field_strip_text = new Adw.SwitchRow({
-            title: _("Remove whitespace around text")
+            title: _("Remove whitespace around text"),
+            subtitle: _("Strip leading and trailing whitespace from text entries on copy")
         });
 
         this.field_move_item_first = new Adw.SwitchRow({
-            title: _("Move item to the top after selection")
+            title: _("Move item to the top after selection"),
+            subtitle: _("When selecting an entry, bring it to the top of the history")
         });
 
         this.field_keep_selected_on_clear = new Adw.SwitchRow({
-            title: _("Keep selected entry after Clear History")
+            title: _("Keep selected entry after Clear History"),
+            subtitle: _("The currently active clipboard entry will not be removed when clearing history")
         });
 
         this.field_paste_button = new Adw.SwitchRow({
@@ -124,24 +138,39 @@ class Settings {
 
         this.field_pinned_on_bottom = new Adw.SwitchRow({
             title: _("Place the pinned section on the bottom"),
-            subtitle: _("Requires restarting the extension")
+            subtitle: _("Move the pinned section to the bottom of the menu. Requires re-login")
         });
 
-        this.field_show_search_bar = new Adw.SwitchRow({title: _("Show Search Bar")});
-        this.field_show_private_mode = new Adw.SwitchRow({title: _("Show Private Mode")});
-        this.field_show_settings_button = new Adw.SwitchRow({title: _("Show Settings Button")});
-        this.field_show_clear_history_button = new Adw.SwitchRow({title: _("Show Clear History Button")});
+        this.field_show_search_bar = new Adw.SwitchRow({
+            title: _("Show Search Bar"),
+            subtitle: _("Display a search field at the top of the clipboard menu")
+        });
+        this.field_show_private_mode = new Adw.SwitchRow({
+            title: _("Show Private Mode"),
+            subtitle: _("Display the private mode toggle in the clipboard menu")
+        });
+        this.field_show_settings_button = new Adw.SwitchRow({
+            title: _("Show Settings Button"),
+            subtitle: _("Display a shortcut to these settings in the clipboard menu")
+        });
+        this.field_show_clear_history_button = new Adw.SwitchRow({
+            title: _("Show Clear History Button"),
+            subtitle: _("Display the clear history button in the clipboard menu")
+        });
 
         this.field_clear_on_boot = new Adw.SwitchRow({
-            title: _("Clear clipboard history on system reboot")
+            title: _("Clear clipboard history on system reboot"),
+            subtitle: _("Delete all cached clipboard entries when the system starts")
         });
 
         this.field_paste_on_select = new Adw.SwitchRow({
-            title: _("Paste on select")
+            title: _("Paste on select"),
+            subtitle: _("Automatically paste the entry into the active window when selected")
         });
 
         this.field_cache_images = new Adw.SwitchRow({
             title: _("Cache images"),
+            subtitle: _("Save copied images to clipboard history"),
             active: true
         });
 
@@ -158,11 +187,13 @@ class Settings {
         });
 
         this.case_sensitive_search = new Adw.SwitchRow({
-            title: _("Case-sensitive search")
+            title: _("Case-sensitive"),
+            subtitle: _("Match uppercase and lowercase letters exactly when searching")
         });
 
         this.regex_search = new Adw.SwitchRow({
-            title: _("Regular expression matching in search")
+            title: _("Regular expressions"),
+            subtitle: _("Allow regular expressions to filter clipboard entries")
         });
 
         this.field_exclusion_row_add_button.connect('clicked', () => {
@@ -175,7 +206,8 @@ class Settings {
         this.field_exclusion_row.add_suffix(this.field_exclusion_row_add_button);
 
         this.field_clear_history_on_interval = new Adw.SwitchRow({
-            title: _("Clear clipboard history on interval")
+            title: _("Clear clipboard history on interval"),
+            subtitle: _("Automatically clear clipboard history at a recurring interval")
         });
 
         this.field_clear_history_interval = new Adw.SpinRow({
