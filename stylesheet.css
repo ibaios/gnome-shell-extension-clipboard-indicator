@@ -81,3 +81,10 @@
 .clipboard-indicator-hbox .clipboard-indicator-icon {
     transition: color 150ms ease-in-out;
 }
+
+.ci-edit-textbox {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 8px;
+    min-width: 384px;
+}
