@@ -663,6 +663,15 @@ const ClipboardIndicator = GObject.registerClass({
         this._setEntryLabel(menuItem);
         this.clipItemsRadioGroup.push(menuItem);
 
+        if (entry.getTag()) {
+            menuItem.tagLabel = new St.Label({
+                text: entry.getTag(),
+                style_class: 'ci-tag-label',
+                y_align: Clutter.ActorAlign.CENTER,
+            });
+            menuItem.actor.add_child(menuItem.tagLabel);
+        }
+
         // Image preview button
         if (entry.isImage()) {
             menuItem.imagePreviewBtn = new St.Button({
@@ -737,6 +746,23 @@ const ClipboardIndicator = GObject.registerClass({
         );
 
         menuItem.actor.add_child(menuItem.pasteBtn);
+
+        // Tag button
+        const tagIcon = new St.Icon({
+            icon_name: 'user-bookmarks-symbolic',
+            style_class: 'system-status-icon',
+        });
+
+        menuItem.tagBtn = new St.Button({
+            style_class: 'ci-action-btn',
+            can_focus: true,
+            child: tagIcon,
+            x_align: Clutter.ActorAlign.END,
+            x_expand: false,
+            y_expand: true,
+        });
+        menuItem.tagBtn.connect('clicked', () => this.#showTagDialog(menuItem));
+        menuItem.actor.add_child(menuItem.tagBtn);
 
         // Delete button
         let icon = new St.Icon({
@@ -1643,6 +1669,59 @@ const ClipboardIndicator = GObject.registerClass({
             console.error('Clipboard Indicator: failed to load image preview');
             console.error(e);
         });
+    }
+
+    #showTagDialog (menuItem) {
+        const dialog = new ModalDialog.ModalDialog({ destroyOnClose: true });
+
+        const textEntry = new St.Entry({
+            text: menuItem.entry.getTag() || '',
+            hint_text: _('Enter tag…'),
+            can_focus: true,
+            x_expand: true,
+            style: 'min-width: 300px;',
+        });
+
+        dialog.contentLayout.add_child(textEntry);
+
+        dialog.addButton({
+            label: _('Discard'),
+            action: () => dialog.close(),
+            key: Clutter.KEY_Escape,
+        });
+
+        dialog.addButton({
+            label: _('Save'),
+            action: () => {
+                const tag = textEntry.get_text().trim() || null;
+                menuItem.entry.setTag(tag);
+                this._updateTagLabel(menuItem);
+                this._updateCache();
+                dialog.close();
+            },
+            default: true,
+        });
+
+        dialog.open();
+        textEntry.grab_key_focus();
+    }
+
+    _updateTagLabel (menuItem) {
+        if (menuItem.tagLabel) {
+            menuItem.actor.remove_child(menuItem.tagLabel);
+            menuItem.tagLabel.destroy();
+            menuItem.tagLabel = null;
+        }
+
+        const tag = menuItem.entry.getTag();
+        if (tag) {
+            menuItem.tagLabel = new St.Label({
+                text: tag,
+                style_class: 'ci-tag-label',
+                y_align: Clutter.ActorAlign.CENTER,
+            });
+            menuItem.actor.insert_child_above(menuItem.tagLabel, menuItem.label);
+        }
     }
 
     #showEditDialog (menuItem, reopenOnClose = false) {
