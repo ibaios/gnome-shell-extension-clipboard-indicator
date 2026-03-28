@@ -647,6 +647,9 @@ const ClipboardIndicator = GObject.registerClass({
                         return Clutter.EVENT_STOP;
                     }
                     break;
+                case Clutter.KEY_t:
+                    this.#showTagDialog(menuItem, true);
+                    return Clutter.EVENT_STOP;
                 case Clutter.KEY_KP_Enter:
                 case Clutter.KEY_Return:
                     if (PASTE_ON_SELECT) {
@@ -1671,8 +1674,15 @@ const ClipboardIndicator = GObject.registerClass({
         });
     }
 
-    #showTagDialog (menuItem) {
+    #showTagDialog (menuItem, reopenOnClose = false) {
         const dialog = new ModalDialog.ModalDialog({ destroyOnClose: true });
+
+        const onDialogClose = () => {
+            if (reopenOnClose) {
+                this._focusItemOnOpen = menuItem;
+                this.menu.open();
+            }
+        };
 
         const textEntry = new St.Entry({
             text: menuItem.entry.getTag() || '',
@@ -1686,7 +1696,10 @@ const ClipboardIndicator = GObject.registerClass({
 
         dialog.addButton({
             label: _('Discard'),
-            action: () => dialog.close(),
+            action: () => {
+                dialog.close();
+                onDialogClose();
+            },
             key: Clutter.KEY_Escape,
         });
 
@@ -1698,6 +1711,7 @@ const ClipboardIndicator = GObject.registerClass({
                 this._updateTagLabel(menuItem);
                 this._updateCache();
                 dialog.close();
+                onDialogClose();
             },
             default: true,
         });

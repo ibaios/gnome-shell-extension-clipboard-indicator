@@ -33,9 +33,11 @@ In-Menu Keyboard Controls
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Use arrows to navigate
+- :code:`<Enter>` to select an item
 - :code:`<Delete>` to delete an item
 - :code:`v` to paste directly from menu
 - :code:`p` to pin item
+- :code:`t` to add a tag
 - :code:`h` to preview image
 - :code:`e` to edit entry
 
@@ -55,7 +57,6 @@ Pasting from the menu works by sending Shift+Insert to programs or Ctrl+Shift+In
 
     # Add Ctrl Shift Insert to paste for clipboard-indicator
     keybind = ctrl+shift+insert=paste_from_clipboard
-  
 
 📦 Install from source
 ----------------
