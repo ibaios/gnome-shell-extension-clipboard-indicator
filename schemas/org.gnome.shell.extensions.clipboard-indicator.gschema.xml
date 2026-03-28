@@ -262,5 +262,12 @@
             <summary>Regex-based search</summary>
             <description>Allow regex in search</description>
         </key>
+        <key name="open-at-cursor" type="b">
+            <default>false</default>
+            <summary>Open menu at cursor position</summary>
+            <description>
+                If true, the menu will open at the cursor position when using the keyboard shortcut.
+            </description>
+        </key>
     </schema>
 </schemalist>

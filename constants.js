@@ -36,4 +36,5 @@ export const PrefsFields = {
     SHOW_PRIVATE_MODE               : 'show-private-mode',
     SHOW_SETTINGS_BUTTON            : 'show-settings-button',
     SHOW_CLEAR_HISTORY_BUTTON       : 'show-clear-history-button',
+    OPEN_AT_CURSOR                  : 'open-at-cursor',
 };
