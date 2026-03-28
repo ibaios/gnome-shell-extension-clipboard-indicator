@@ -168,6 +168,11 @@ class Settings {
             subtitle: _("Automatically paste the entry into the active window when selected")
         });
 
+        this.field_open_at_cursor = new Adw.SwitchRow({
+            title: _("Open menu at cursor"),
+            subtitle: _("When using the keyboard shortcut, open the menu at the cursor position")
+        });
+
         this.field_cache_images = new Adw.SwitchRow({
             title: _("Cache images"),
             subtitle: _("Save copied images to clipboard history"),
@@ -244,6 +249,7 @@ class Settings {
         this.behavior.add(this.field_strip_text);
         this.behavior.add(this.field_move_item_first);
         this.behavior.add(this.field_keep_selected_on_clear);
+        this.behavior.add(this.field_open_at_cursor);
         this.behavior.add(this.field_paste_on_select);
         this.behavior.add(this.field_cache_images);
         this.behavior.add(this.field_clear_on_boot);
@@ -295,6 +301,7 @@ class Settings {
         this.schema.bind(PrefsFields.ENABLE_KEYBINDING, this.field_keybinding_activation, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.CLEAR_ON_BOOT, this.field_clear_on_boot, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.PASTE_ON_SELECT, this.field_paste_on_select, 'active', Gio.SettingsBindFlags.DEFAULT);
+        this.schema.bind(PrefsFields.OPEN_AT_CURSOR, this.field_open_at_cursor, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.CACHE_IMAGES, this.field_cache_images, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.CLEAR_HISTORY_ON_INTERVAL, this.field_clear_history_on_interval, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.CLEAR_HISTORY_INTERVAL, this.field_clear_history_interval, 'value', Gio.SettingsBindFlags.DEFAULT);

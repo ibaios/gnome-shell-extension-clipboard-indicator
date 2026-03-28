@@ -51,6 +51,7 @@ let CLEAR_HISTORY_INTERVAL    = 60;
 let NEXT_HISTORY_CLEAR        = -1;
 let CASE_SENSITIVE_SEARCH     = false;
 let REGEX_SEARCH              = false;
+let OPEN_AT_CURSOR            = false;
 let SHOW_SEARCH_BAR           = true;
 let SHOW_PRIVATE_MODE         = true;
 let SHOW_SETTINGS_BUTTON      = true;
@@ -1303,6 +1304,7 @@ const ClipboardIndicator = GObject.registerClass({
         NEXT_HISTORY_CLEAR          = settings.get_int(PrefsFields.NEXT_HISTORY_CLEAR);
         CASE_SENSITIVE_SEARCH       = settings.get_boolean(PrefsFields.CASE_SENSITIVE_SEARCH);
         REGEX_SEARCH                = settings.get_boolean(PrefsFields.REGEX_SEARCH);
+        OPEN_AT_CURSOR              = settings.get_boolean(PrefsFields.OPEN_AT_CURSOR);
         SHOW_SEARCH_BAR             = settings.get_boolean(PrefsFields.SHOW_SEARCH_BAR);
         SHOW_PRIVATE_MODE           = settings.get_boolean(PrefsFields.SHOW_PRIVATE_MODE);
         SHOW_SETTINGS_BUTTON        = settings.get_boolean(PrefsFields.SHOW_SETTINGS_BUTTON);
@@ -1511,13 +1513,15 @@ const ClipboardIndicator = GObject.registerClass({
     }
 
     _toggleMenu () {
-        if (!this.menu.isOpen) {
+        if (!this.menu.isOpen && OPEN_AT_CURSOR) {
             const [x, y] = global.get_pointer();
             this._cursorActor.set_position(x, y);
             this.menu.sourceActor = this._cursorActor;
         }
         this.menu.toggle();
     }
+
+
 
 
     #pasteItem (menuItem) {
