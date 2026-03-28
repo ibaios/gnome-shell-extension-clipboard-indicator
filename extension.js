@@ -1705,6 +1705,8 @@ const ClipboardIndicator = GObject.registerClass({
                 menuItem.clipContents = newText;
                 this._setEntryLabel(menuItem);
                 this._updateCache();
+                if (menuItem.currentlySelected)
+                    this.#updateClipboard(menuItem.entry);
                 dialog.close();
                 onDialogClose();
             },
