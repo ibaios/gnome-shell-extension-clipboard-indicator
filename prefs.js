@@ -12,21 +12,21 @@ export default class ClipboardIndicatorPreferences extends ExtensionPreferences 
         const settingsUI = new Settings(window._settings);
 
         const tabs = [
-            { title: _('UI'),            iconName: 'view-grid-symbolic',               group: settingsUI.ui },
-            { title: _('Behavior'),      iconName: 'system-run-symbolic',           group: settingsUI.behavior },
-            { title: _('Search'),        iconName: 'system-search-symbolic',           group: settingsUI.search },
-            { title: _('Limits'),        iconName: 'preferences-system-symbolic',      group: settingsUI.limits },
-            { title: _('Exclusion'),     iconName: 'action-unavailable-symbolic',      group: settingsUI.exclusion },
-            { title: _('Topbar'),        iconName: 'edit-paste-symbolic',              group: settingsUI.topbar },
-            { title: _('Notifications'), iconName: 'emoji-objects-symbolic',               group: settingsUI.notifications },
-            { title: _('Shortcuts'),     iconName: 'input-keyboard-symbolic',          group: settingsUI.shortcuts },
+            { title: _('UI'),            iconName: 'view-grid-symbolic',               groups: [settingsUI.ui, settingsUI.item_actions] },
+            { title: _('Behavior'),      iconName: 'system-run-symbolic',              groups: [settingsUI.behavior] },
+            { title: _('Search'),        iconName: 'system-search-symbolic',           groups: [settingsUI.search] },
+            { title: _('Limits'),        iconName: 'preferences-system-symbolic',      groups: [settingsUI.limits] },
+            { title: _('Exclusion'),     iconName: 'action-unavailable-symbolic',      groups: [settingsUI.exclusion] },
+            { title: _('Topbar'),        iconName: 'edit-paste-symbolic',              groups: [settingsUI.topbar] },
+            { title: _('Notifications'), iconName: 'emoji-objects-symbolic',           groups: [settingsUI.notifications] },
+            { title: _('Shortcuts'),     iconName: 'input-keyboard-symbolic',          groups: [settingsUI.shortcuts] },
         ];
 
         window.set_default_size(700, 650);
 
-        for (const { title, iconName, group } of tabs) {
+        for (const { title, iconName, groups } of tabs) {
             const page = new Adw.PreferencesPage({ title, icon_name: iconName });
-            page.add(group);
+            groups.forEach(g => page.add(g));
             window.add(page);
         }
     }
@@ -131,11 +131,6 @@ class Settings {
             subtitle: _("The currently active clipboard entry will not be removed when clearing history")
         });
 
-        this.field_paste_button = new Adw.SwitchRow({
-            title: _("Show paste buttons"),
-            subtitle: _("Adds a paste button to each entry that lets you paste it directly")
-        });
-
         this.field_pinned_on_bottom = new Adw.SwitchRow({
             title: _("Place the pinned section on the bottom"),
             subtitle: _("Move the pinned section to the bottom of the menu. Requires re-login")
@@ -171,6 +166,36 @@ class Settings {
         this.field_open_at_cursor = new Adw.SwitchRow({
             title: _("Open menu at cursor"),
             subtitle: _("When using the keyboard shortcut, open the menu at the cursor position")
+        });
+
+        this.field_show_delete_button = new Adw.SwitchRow({
+            title: _("Delete"),
+            subtitle: _("Show the delete button on each item")
+        });
+
+        this.field_show_tag_button = new Adw.SwitchRow({
+            title: _("Tag"),
+            subtitle: _("Show the tag button on each item")
+        });
+
+        this.field_paste_button = new Adw.SwitchRow({
+            title: _("Paste"),
+            subtitle: _("Show the paste button on each item")
+        });
+
+        this.field_show_pin_button = new Adw.SwitchRow({
+            title: _("Pin"),
+            subtitle: _("Show the pin/favorite button on each item")
+        });
+
+        this.field_show_edit_button = new Adw.SwitchRow({
+            title: _("Edit"),
+            subtitle: _("Show the edit button on each text item")
+        });
+
+        this.field_show_preview_button = new Adw.SwitchRow({
+            title: _("Preview"),
+            subtitle: _("Show the preview button on each image item")
         });
 
         this.field_cache_images = new Adw.SwitchRow({
@@ -236,10 +261,10 @@ class Settings {
         this.notifications =  new Adw.PreferencesGroup({ title: _('Notifications') });
         this.shortcuts =  new Adw.PreferencesGroup({ title: _('Shortcuts') });
         this.search = new Adw.PreferencesGroup({title: _('Search')});
+        this.item_actions = new Adw.PreferencesGroup({ title: _('Item Actions') });
 
         this.ui.add(this.field_preview_size);
         this.ui.add(this.field_confirm_clear_toggle);
-        this.ui.add(this.field_paste_button);
         this.ui.add(this.field_pinned_on_bottom);
         this.ui.add(this.field_show_search_bar);
         this.ui.add(this.field_show_private_mode);
@@ -275,6 +300,13 @@ class Settings {
         this.search.add(this.case_sensitive_search);
         this.search.add(this.regex_search);
 
+        this.item_actions.add(this.field_show_delete_button);
+        this.item_actions.add(this.field_show_tag_button);
+        this.item_actions.add(this.field_paste_button);
+        this.item_actions.add(this.field_show_pin_button);
+        this.item_actions.add(this.field_show_edit_button);
+        this.item_actions.add(this.field_show_preview_button);
+
         this.#buildShorcuts(this.shortcuts);
 
         this.schema.bind(PrefsFields.HISTORY_SIZE, this.field_size, 'value', Gio.SettingsBindFlags.DEFAULT);
@@ -307,6 +339,11 @@ class Settings {
         this.schema.bind(PrefsFields.CLEAR_HISTORY_INTERVAL, this.field_clear_history_interval, 'value', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.CASE_SENSITIVE_SEARCH, this.case_sensitive_search, 'active', Gio.SettingsBindFlags.DEFAULT);
         this.schema.bind(PrefsFields.REGEX_SEARCH, this.regex_search, 'active', Gio.SettingsBindFlags.DEFAULT);
+        this.schema.bind(PrefsFields.SHOW_DELETE_BUTTON, this.field_show_delete_button, 'active', Gio.SettingsBindFlags.DEFAULT);
+        this.schema.bind(PrefsFields.SHOW_TAG_BUTTON, this.field_show_tag_button, 'active', Gio.SettingsBindFlags.DEFAULT);
+        this.schema.bind(PrefsFields.SHOW_PIN_BUTTON, this.field_show_pin_button, 'active', Gio.SettingsBindFlags.DEFAULT);
+        this.schema.bind(PrefsFields.SHOW_EDIT_BUTTON, this.field_show_edit_button, 'active', Gio.SettingsBindFlags.DEFAULT);
+        this.schema.bind(PrefsFields.SHOW_PREVIEW_BUTTON, this.field_show_preview_button, 'active', Gio.SettingsBindFlags.DEFAULT);
 
         this.field_clear_history_interval.set_sensitive(this.field_clear_history_on_interval.active);
         this.#fetchExludedAppsList();

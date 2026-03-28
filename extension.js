@@ -56,6 +56,11 @@ let SHOW_SEARCH_BAR           = true;
 let SHOW_PRIVATE_MODE         = true;
 let SHOW_SETTINGS_BUTTON      = true;
 let SHOW_CLEAR_HISTORY_BUTTON = true;
+let SHOW_DELETE_BUTTON        = true;
+let SHOW_TAG_BUTTON           = true;
+let SHOW_PIN_BUTTON           = true;
+let SHOW_EDIT_BUTTON          = true;
+let SHOW_PREVIEW_BUTTON       = true;
 
 export default class ClipboardIndicatorExtension extends Extension {
     enable () {
@@ -513,21 +518,21 @@ const ClipboardIndicator = GObject.registerClass({
             });
         }
         else {
-            this._getAllIMenuItems().forEach(function(mItem){
-                // Clip content converted to lowercase if search is case insensitive
+        this._getAllIMenuItems().forEach((mItem) => {
                 let text = mItem.clipContents;
-                if (!CASE_SENSITIVE_SEARCH) text = text.toLowerCase();
+                let tag = mItem.entry.getTag() || '';
+                if (!CASE_SENSITIVE_SEARCH) {
+                    text = text.toLowerCase();
+                    tag = tag.toLowerCase();
+                }
 
                 let isMatching = false;
-                if (REGEX_SEARCH){
-                    /* Regex flags:
-                       - 'm' for multiline matching (when multiline content is copied)
-                       - 'i' for case insensitive matching when search is not set to case sensitive
-                    */
-                    let text_regex = new RegExp(searchedText, 'm' + (CASE_SENSITIVE_SEARCH ? '' : 'i'));
-                    isMatching = text_regex.test(text);
-                }else{
-                    isMatching = text.indexOf(searchedText) >= 0;
+                if (REGEX_SEARCH) {
+                    const flags = 'm' + (CASE_SENSITIVE_SEARCH ? '' : 'i');
+                    const re = new RegExp(searchedText, flags);
+                    isMatching = re.test(text) || re.test(tag);
+                } else {
+                    isMatching = text.includes(searchedText) || tag.includes(searchedText);
                 }
                 mItem.actor.visible = isMatching;
             });
@@ -647,6 +652,9 @@ const ClipboardIndicator = GObject.registerClass({
                         return Clutter.EVENT_STOP;
                     }
                     break;
+                case Clutter.KEY_t:
+                    this.#showTagDialog(menuItem, true);
+                    return Clutter.EVENT_STOP;
                 case Clutter.KEY_KP_Enter:
                 case Clutter.KEY_Return:
                     if (PASTE_ON_SELECT) {
@@ -663,6 +671,15 @@ const ClipboardIndicator = GObject.registerClass({
         this._setEntryLabel(menuItem);
         this.clipItemsRadioGroup.push(menuItem);
 
+        if (entry.getTag()) {
+            menuItem.tagLabel = new St.Label({
+                text: entry.getTag(),
+                style_class: 'ci-tag-label',
+                y_align: Clutter.ActorAlign.CENTER,
+            });
+            menuItem.actor.add_child(menuItem.tagLabel);
+        }
+
         // Image preview button
         if (entry.isImage()) {
             menuItem.imagePreviewBtn = new St.Button({
@@ -672,6 +689,7 @@ const ClipboardIndicator = GObject.registerClass({
                     icon_name: 'image-x-generic-symbolic',
                     style_class: 'system-status-icon'
                 }),
+                visible: SHOW_PREVIEW_BUTTON,
                 x_align: Clutter.ActorAlign.END,
                 x_expand: true,
                 y_expand: true,
@@ -689,6 +707,7 @@ const ClipboardIndicator = GObject.registerClass({
                     icon_name: 'document-edit-symbolic',
                     style_class: 'system-status-icon',
                 }),
+                visible: SHOW_EDIT_BUTTON,
                 x_align: Clutter.ActorAlign.END,
                 x_expand: true,
                 y_expand: true,
@@ -707,6 +726,7 @@ const ClipboardIndicator = GObject.registerClass({
             style_class: 'ci-pin-btn ci-action-btn',
             can_focus: true,
             child: iconfav,
+            visible: SHOW_PIN_BUTTON,
             x_align: Clutter.ActorAlign.END,
             x_expand: !entry.isImage() && !entry.isText(),
             y_expand: true
@@ -738,6 +758,24 @@ const ClipboardIndicator = GObject.registerClass({
 
         menuItem.actor.add_child(menuItem.pasteBtn);
 
+        // Tag button
+        const tagIcon = new St.Icon({
+            icon_name: 'user-bookmarks-symbolic',
+            style_class: 'system-status-icon',
+        });
+
+        menuItem.tagBtn = new St.Button({
+            style_class: 'ci-action-btn',
+            can_focus: true,
+            child: tagIcon,
+            visible: SHOW_TAG_BUTTON,
+            x_align: Clutter.ActorAlign.END,
+            x_expand: false,
+            y_expand: true,
+        });
+        menuItem.tagBtn.connect('clicked', () => this.#showTagDialog(menuItem));
+        menuItem.actor.add_child(menuItem.tagBtn);
+
         // Delete button
         let icon = new St.Icon({
             icon_name: 'edit-delete-symbolic', //'mail-attachment-symbolic',
@@ -748,6 +786,7 @@ const ClipboardIndicator = GObject.registerClass({
             style_class: 'ci-action-btn',
             can_focus: true,
             child: icon,
+            visible: SHOW_DELETE_BUTTON,
             x_align: Clutter.ActorAlign.END,
             x_expand: false,
             y_expand: true
@@ -1314,6 +1353,11 @@ const ClipboardIndicator = GObject.registerClass({
         SHOW_PRIVATE_MODE           = settings.get_boolean(PrefsFields.SHOW_PRIVATE_MODE);
         SHOW_SETTINGS_BUTTON        = settings.get_boolean(PrefsFields.SHOW_SETTINGS_BUTTON);
         SHOW_CLEAR_HISTORY_BUTTON   = settings.get_boolean(PrefsFields.SHOW_CLEAR_HISTORY_BUTTON);
+        SHOW_DELETE_BUTTON          = settings.get_boolean(PrefsFields.SHOW_DELETE_BUTTON);
+        SHOW_TAG_BUTTON             = settings.get_boolean(PrefsFields.SHOW_TAG_BUTTON);
+        SHOW_PIN_BUTTON             = settings.get_boolean(PrefsFields.SHOW_PIN_BUTTON);
+        SHOW_EDIT_BUTTON            = settings.get_boolean(PrefsFields.SHOW_EDIT_BUTTON);
+        SHOW_PREVIEW_BUTTON         = settings.get_boolean(PrefsFields.SHOW_PREVIEW_BUTTON);
     }
 
     async _onSettingsChange () {
@@ -1336,6 +1380,11 @@ const ClipboardIndicator = GObject.registerClass({
             this._getAllIMenuItems().forEach(function (mItem) {
                 that._setEntryLabel(mItem);
                 mItem.pasteBtn.visible = PASTE_BUTTON;
+                mItem.icoBtn.visible = SHOW_DELETE_BUTTON;
+                mItem.tagBtn.visible = SHOW_TAG_BUTTON;
+                mItem.icofavBtn.visible = SHOW_PIN_BUTTON;
+                if (mItem.editBtn) mItem.editBtn.visible = SHOW_EDIT_BUTTON;
+                if (mItem.imagePreviewBtn) mItem.imagePreviewBtn.visible = SHOW_PREVIEW_BUTTON;
             });
 
             //update topbar
@@ -1643,6 +1692,70 @@ const ClipboardIndicator = GObject.registerClass({
             console.error('Clipboard Indicator: failed to load image preview');
             console.error(e);
         });
+    }
+
+    #showTagDialog (menuItem, reopenOnClose = false) {
+        const dialog = new ModalDialog.ModalDialog({ destroyOnClose: true });
+
+        const onDialogClose = () => {
+            if (reopenOnClose) {
+                this._focusItemOnOpen = menuItem;
+                this.menu.open();
+            }
+        };
+
+        const textEntry = new St.Entry({
+            text: menuItem.entry.getTag() || '',
+            hint_text: _('Enter tag…'),
+            can_focus: true,
+            x_expand: true,
+            style: 'min-width: 300px;',
+        });
+
+        dialog.contentLayout.add_child(textEntry);
+
+        dialog.addButton({
+            label: _('Discard'),
+            action: () => {
+                dialog.close();
+                onDialogClose();
+            },
+            key: Clutter.KEY_Escape,
+        });
+
+        dialog.addButton({
+            label: _('Save'),
+            action: () => {
+                const tag = textEntry.get_text().trim() || null;
+                menuItem.entry.setTag(tag);
+                this._updateTagLabel(menuItem);
+                this._updateCache();
+                dialog.close();
+                onDialogClose();
+            },
+            default: true,
+        });
+
+        dialog.open();
+        textEntry.grab_key_focus();
+    }
+
+    _updateTagLabel (menuItem) {
+        if (menuItem.tagLabel) {
+            menuItem.actor.remove_child(menuItem.tagLabel);
+            menuItem.tagLabel.destroy();
+            menuItem.tagLabel = null;
+        }
+
+        const tag = menuItem.entry.getTag();
+        if (tag) {
+            menuItem.tagLabel = new St.Label({
+                text: tag,
+                style_class: 'ci-tag-label',
+                y_align: Clutter.ActorAlign.CENTER,
+            });
+            menuItem.actor.insert_child_above(menuItem.tagLabel, menuItem.label);
+        }
     }
 
     #showEditDialog (menuItem, reopenOnClose = false) {

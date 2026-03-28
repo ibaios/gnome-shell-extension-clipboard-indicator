@@ -28,7 +28,7 @@ export class Registry {
 
             registryContent.push(item);
 
-            if (entry.isText()) {
+    if (entry.isText()) {
                 item.contents = entry.getStringValue();
             }
             else if (entry.isImage()) {
@@ -36,6 +36,8 @@ export class Registry {
                 item.contents = filename;
                 this.writeEntryFile(entry);
             }
+
+            if (entry.getTag()) item.tag = entry.getTag();
         }
 
         this.writeToFile(registryContent);
@@ -280,7 +282,9 @@ export class ClipboardEntry {
             }
         }
 
-        return new ClipboardEntry(mimetype, bytes, favorite);
+        const entry = new ClipboardEntry(mimetype, bytes, favorite);
+        if (jsonEntry.tag) entry.setTag(jsonEntry.tag);
+        return entry;
     }
 
     constructor (mimetype, bytes, favorite) {
@@ -329,6 +333,16 @@ export class ClipboardEntry {
     setText (text) {
         if (!this.isText()) return;
         this.#bytes = new TextEncoder().encode(text);
+    }
+
+    #tag = null;
+
+    getTag () {
+        return this.#tag;
+    }
+
+    setTag (tag) {
+        this.#tag = tag || null;
     }
 
     asBytes () {
