@@ -8,7 +8,7 @@
    :alt: Get it on GNOME Extensions
 
 The most popular, reliable and feature-rich clipboard manager for GNOME with
-over **1M** downloads.
+over **2M** downloads.
 
 |Screenshot|
 
@@ -33,9 +33,11 @@ In-Menu Keyboard Controls
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Use arrows to navigate
+- :code:`<Delete>` to delete an item
 - :code:`v` to paste directly from menu
 - :code:`p` to pin item
-- :code:`<Delete>` to delete an item
+- :code:`h` to preview image
+- :code:`e` to edit entry
 
 Terminal support
 ^^^^^^^^^^^^^^^^
