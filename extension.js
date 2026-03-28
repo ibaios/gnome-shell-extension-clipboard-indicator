@@ -513,21 +513,21 @@ const ClipboardIndicator = GObject.registerClass({
             });
         }
         else {
-            this._getAllIMenuItems().forEach(function(mItem){
-                // Clip content converted to lowercase if search is case insensitive
+        this._getAllIMenuItems().forEach((mItem) => {
                 let text = mItem.clipContents;
-                if (!CASE_SENSITIVE_SEARCH) text = text.toLowerCase();
+                let tag = mItem.entry.getTag() || '';
+                if (!CASE_SENSITIVE_SEARCH) {
+                    text = text.toLowerCase();
+                    tag = tag.toLowerCase();
+                }
 
                 let isMatching = false;
-                if (REGEX_SEARCH){
-                    /* Regex flags:
-                       - 'm' for multiline matching (when multiline content is copied)
-                       - 'i' for case insensitive matching when search is not set to case sensitive
-                    */
-                    let text_regex = new RegExp(searchedText, 'm' + (CASE_SENSITIVE_SEARCH ? '' : 'i'));
-                    isMatching = text_regex.test(text);
-                }else{
-                    isMatching = text.indexOf(searchedText) >= 0;
+                if (REGEX_SEARCH) {
+                    const flags = 'm' + (CASE_SENSITIVE_SEARCH ? '' : 'i');
+                    const re = new RegExp(searchedText, flags);
+                    isMatching = re.test(text) || re.test(tag);
+                } else {
+                    isMatching = text.includes(searchedText) || tag.includes(searchedText);
                 }
                 mItem.actor.visible = isMatching;
             });
