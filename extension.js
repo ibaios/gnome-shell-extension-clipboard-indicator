@@ -769,7 +769,8 @@ const ClipboardIndicator = GObject.registerClass({
             this._selectMenuItem(menuItem, autoSetClip);
         }
         else {
-            menuItem.setOrnament(PopupMenu.Ornament.NONE);
+            menuItem.setOrnament(PopupMenu.Ornament.DOT);
+            if (menuItem._ornamentIcon) menuItem._ornamentIcon.opacity = 0;
         }
 
         this.#showElements();
@@ -865,12 +866,14 @@ const ClipboardIndicator = GObject.registerClass({
 
             if (otherMenuItem === menuItem && clipContents) {
                 menuItem.setOrnament(PopupMenu.Ornament.DOT);
+                if (menuItem._ornamentIcon) menuItem._ornamentIcon.opacity = 255;
                 menuItem.currentlySelected = true;
                 if (autoSet !== false)
                     this.#updateClipboard(menuItem.entry);
             }
             else {
-                otherMenuItem.setOrnament(PopupMenu.Ornament.NONE);
+                otherMenuItem.setOrnament(PopupMenu.Ornament.DOT);
+                if (otherMenuItem._ornamentIcon) otherMenuItem._ornamentIcon.opacity = 0;
                 otherMenuItem.currentlySelected = false;
             }
         }
@@ -887,12 +890,14 @@ const ClipboardIndicator = GObject.registerClass({
 
             if (menuItem === otherMenuItem && clipContents) {
                 menuItem.setOrnament(PopupMenu.Ornament.DOT);
+                if (menuItem._ornamentIcon) menuItem._ornamentIcon.opacity = 255;
                 menuItem.currentlySelected = true;
                 if (autoSet !== false)
                     this.#updateClipboard(menuItem.entry);
             }
             else {
-                otherMenuItem.setOrnament(PopupMenu.Ornament.NONE);
+                otherMenuItem.setOrnament(PopupMenu.Ornament.DOT);
+                if (otherMenuItem._ornamentIcon) otherMenuItem._ornamentIcon.opacity = 0;
                 otherMenuItem.currentlySelected = false;
             }
         }
