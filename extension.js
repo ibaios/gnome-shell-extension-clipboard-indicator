@@ -91,12 +91,23 @@ const ClipboardIndicator = GObject.registerClass({
         this.#closeImagePreview();
         this.dialogManager.destroy();
         this.keyboard.destroy();
+        this._cursorActor.destroy();
+        this._cursorActor = null;
 
         super.destroy();
     }
 
     _init (extension) {
         super._init(0.0, "ClipboardIndicator");
+
+        this._cursorActor = new Clutter.Actor({ opacity: 0, width: 1, height: 1 });
+        Main.uiGroup.add_child(this._cursorActor);
+
+        this.menu.connect('open-state-changed', (menu, isOpen) => {
+            if (!isOpen)
+                this.menu.sourceActor = this;
+        });
+
         this.extension = extension;
         this._destroyed = false;
         this.registry = new Registry(extension);
@@ -1500,8 +1511,14 @@ const ClipboardIndicator = GObject.registerClass({
     }
 
     _toggleMenu () {
+        if (!this.menu.isOpen) {
+            const [x, y] = global.get_pointer();
+            this._cursorActor.set_position(x, y);
+            this.menu.sourceActor = this._cursorActor;
+        }
         this.menu.toggle();
     }
+
 
     #pasteItem (menuItem) {
         this.menu.close();
