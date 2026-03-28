@@ -56,6 +56,11 @@ let SHOW_SEARCH_BAR           = true;
 let SHOW_PRIVATE_MODE         = true;
 let SHOW_SETTINGS_BUTTON      = true;
 let SHOW_CLEAR_HISTORY_BUTTON = true;
+let SHOW_DELETE_BUTTON        = true;
+let SHOW_TAG_BUTTON           = true;
+let SHOW_PIN_BUTTON           = true;
+let SHOW_EDIT_BUTTON          = true;
+let SHOW_PREVIEW_BUTTON       = true;
 
 export default class ClipboardIndicatorExtension extends Extension {
     enable () {
@@ -684,6 +689,7 @@ const ClipboardIndicator = GObject.registerClass({
                     icon_name: 'image-x-generic-symbolic',
                     style_class: 'system-status-icon'
                 }),
+                visible: SHOW_PREVIEW_BUTTON,
                 x_align: Clutter.ActorAlign.END,
                 x_expand: true,
                 y_expand: true,
@@ -701,6 +707,7 @@ const ClipboardIndicator = GObject.registerClass({
                     icon_name: 'document-edit-symbolic',
                     style_class: 'system-status-icon',
                 }),
+                visible: SHOW_EDIT_BUTTON,
                 x_align: Clutter.ActorAlign.END,
                 x_expand: true,
                 y_expand: true,
@@ -719,6 +726,7 @@ const ClipboardIndicator = GObject.registerClass({
             style_class: 'ci-pin-btn ci-action-btn',
             can_focus: true,
             child: iconfav,
+            visible: SHOW_PIN_BUTTON,
             x_align: Clutter.ActorAlign.END,
             x_expand: !entry.isImage() && !entry.isText(),
             y_expand: true
@@ -760,6 +768,7 @@ const ClipboardIndicator = GObject.registerClass({
             style_class: 'ci-action-btn',
             can_focus: true,
             child: tagIcon,
+            visible: SHOW_TAG_BUTTON,
             x_align: Clutter.ActorAlign.END,
             x_expand: false,
             y_expand: true,
@@ -777,6 +786,7 @@ const ClipboardIndicator = GObject.registerClass({
             style_class: 'ci-action-btn',
             can_focus: true,
             child: icon,
+            visible: SHOW_DELETE_BUTTON,
             x_align: Clutter.ActorAlign.END,
             x_expand: false,
             y_expand: true
@@ -1343,6 +1353,11 @@ const ClipboardIndicator = GObject.registerClass({
         SHOW_PRIVATE_MODE           = settings.get_boolean(PrefsFields.SHOW_PRIVATE_MODE);
         SHOW_SETTINGS_BUTTON        = settings.get_boolean(PrefsFields.SHOW_SETTINGS_BUTTON);
         SHOW_CLEAR_HISTORY_BUTTON   = settings.get_boolean(PrefsFields.SHOW_CLEAR_HISTORY_BUTTON);
+        SHOW_DELETE_BUTTON          = settings.get_boolean(PrefsFields.SHOW_DELETE_BUTTON);
+        SHOW_TAG_BUTTON             = settings.get_boolean(PrefsFields.SHOW_TAG_BUTTON);
+        SHOW_PIN_BUTTON             = settings.get_boolean(PrefsFields.SHOW_PIN_BUTTON);
+        SHOW_EDIT_BUTTON            = settings.get_boolean(PrefsFields.SHOW_EDIT_BUTTON);
+        SHOW_PREVIEW_BUTTON         = settings.get_boolean(PrefsFields.SHOW_PREVIEW_BUTTON);
     }
 
     async _onSettingsChange () {
@@ -1365,6 +1380,11 @@ const ClipboardIndicator = GObject.registerClass({
             this._getAllIMenuItems().forEach(function (mItem) {
                 that._setEntryLabel(mItem);
                 mItem.pasteBtn.visible = PASTE_BUTTON;
+                mItem.icoBtn.visible = SHOW_DELETE_BUTTON;
+                mItem.tagBtn.visible = SHOW_TAG_BUTTON;
+                mItem.icofavBtn.visible = SHOW_PIN_BUTTON;
+                if (mItem.editBtn) mItem.editBtn.visible = SHOW_EDIT_BUTTON;
+                if (mItem.imagePreviewBtn) mItem.imagePreviewBtn.visible = SHOW_PREVIEW_BUTTON;
             });
 
             //update topbar
